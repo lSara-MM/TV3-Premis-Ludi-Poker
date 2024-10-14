@@ -14,6 +14,8 @@ public class Globals
     static public Dictionary<WORD_TYPES, Dictionary<WORD_TYPES, bool>> wordsCheckDictionary =
         new Dictionary<WORD_TYPES, Dictionary<WORD_TYPES, bool>>();
 
+    static public List<Word> wordsList = new List<Word>();
+
     static public void CreateWordsCombinationCheck(WORD_TYPES type, bool wSubstantiu, bool wAdjectiu, bool wVerb, bool wAdverbi, bool wArticle, bool wPronom)
     {
         wordsCheckDictionary.Add(type, new Dictionary<WORD_TYPES, bool>() { { WORD_TYPES.SUBSTANTIU, wSubstantiu } });

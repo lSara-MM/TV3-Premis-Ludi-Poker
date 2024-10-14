@@ -11,6 +11,7 @@ public enum WORD_TYPES
     PRONOM
 }
 
+[System.Serializable]
 public class WordData
 {
     public string word { get; set; }

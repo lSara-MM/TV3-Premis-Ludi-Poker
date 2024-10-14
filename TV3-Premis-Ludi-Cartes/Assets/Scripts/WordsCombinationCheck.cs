@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class WordsCombinationCheck
 {    public WORD_TYPES type { get; set; }
 
