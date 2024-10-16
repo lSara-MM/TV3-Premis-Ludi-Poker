@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class GenerateData : MonoBehaviour
 {
-    public List<WordsCombinationCheck> wordsCheckerDataList;
-    public List<WordData> wordsDataList;
+    public List<Word> wordsList = new List<Word>();
 
     // Start is called before the first frame update
     void Start()
     {
-        wordsCheckerDataList = ReadCSV.Read<WordsCombinationCheck>("CSV/WordsCheck");
+        List<WordsCombinationCheck> wordsCheckerDataList = ReadCSV.Read<WordsCombinationCheck>("CSV/WordsCheck");
 
         foreach (WordsCombinationCheck data in wordsCheckerDataList)
         {
@@ -18,11 +17,14 @@ public class GenerateData : MonoBehaviour
                 data.wSubstantiu, data.wAdjectiu, data.wVerb, data.wAdverbi, data.wArticle, data.wPronom);
         }
 
-        wordsDataList = ReadCSV.Read<WordData>("CSV/Props");
+        List<WordData> wordsDataList = ReadCSV.Read<WordData>("CSV/WordsList");
 
         foreach (WordData data in wordsDataList)
         {
-            data.CreateWord(data.word, data.type);
+            Globals.wordsList.Add(data.CreateWord(data.word, data.type));
         }
+
+        // DEBUG
+        wordsList = Globals.wordsList;
     }
 }
