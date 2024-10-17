@@ -25,10 +25,9 @@ public class PlayCards : MonoBehaviour
 
         for (int i = 0; i < playedCards.transform.childCount; i++) 
         {
-            listplayedCards.Add(playedCards.transform.GetChild(i).gameObject);
+            listplayedCards.Add(playedCards.transform.GetChild(i).gameObject); //This gives a list with the the current slots
         }
         
-
         //Temporal
         for (int i = 0; i < listplayedCards.Count; i++) 
         {
