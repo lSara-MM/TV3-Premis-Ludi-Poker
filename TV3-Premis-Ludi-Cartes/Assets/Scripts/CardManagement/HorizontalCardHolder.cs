@@ -184,9 +184,11 @@ public class HorizontalCardHolder : MonoBehaviour
     }
 
     // Create card when moving from one area to another
-    public void AddCard(Card cardCopied)
+    public void AddCard(Card cardCopied, Word cardWord = null)
     {
         GameObject newCard = Instantiate(slotPrefab, transform);
+
+        
 
         cards.Add(newCard.GetComponentInChildren<Card>());
 
@@ -198,7 +200,10 @@ public class HorizontalCardHolder : MonoBehaviour
         // Add all values from the copied card to the new cone created
         newCard.GetComponentInChildren<Card>().name = cardCopied.gameObject.name;
         newCard.GetComponentInChildren<WordBehaviour>().word = cardCopied.gameObject.GetComponent<WordBehaviour>().word;
-
+        if (cardCopied != null)
+        {
+            newCard.GetComponentInChildren<Card>().myWord = cardWord; //ERIC: This maybe is incorrect and would need word behaviour. IDK what was the Plan @Sara
+        }
         StartCoroutine(Frame());
 
         IEnumerator Frame()

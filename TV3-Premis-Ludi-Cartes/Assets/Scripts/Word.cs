@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum WORD_TYPES
+public enum WORD_TYPES //Eric: Maybe it would be a good idea to add a MAX value to be able to iterate a for of this enum in a generic way
 {
     SUBSTANTIU,
     ADJECTIU,
