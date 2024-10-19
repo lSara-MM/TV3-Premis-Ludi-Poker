@@ -45,6 +45,10 @@ public class HorizontalCardHolder : MonoBehaviour
             card.EndDragEvent.AddListener(EndDrag);
             card.name = cardCount.ToString();
             cardCount++;
+
+            // Add word to the card (Debug, add random word from wordlist) 
+            int random = UnityEngine.Random.Range(0, Globals.wordsList.Count);
+            card.gameObject.GetComponent<WordBehaviour>().word = Globals.wordsList[random];
         }
 
         StartCoroutine(Frame());
@@ -193,6 +197,7 @@ public class HorizontalCardHolder : MonoBehaviour
 
         // Add all values from the copied card to the new cone created
         newCard.GetComponentInChildren<Card>().name = cardCopied.gameObject.name;
+        newCard.GetComponentInChildren<WordBehaviour>().word = cardCopied.gameObject.GetComponent<WordBehaviour>().word;
 
         StartCoroutine(Frame());
 

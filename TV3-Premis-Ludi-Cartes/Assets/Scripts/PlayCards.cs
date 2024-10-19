@@ -20,15 +20,15 @@ public class PlayCards : MonoBehaviour
 
     public void OnButtonPress() 
     {
-        //First we add on a list all cards that are in play (the children of "playedCards") to be able to read them 
+        // First, we add on a list all cards that are in play (the children of the children of "playedCards" (inside Card Slot)) to be able to read them 
         List<GameObject> listplayedCards = new List<GameObject>();
 
         for (int i = 0; i < playedCards.transform.childCount; i++) 
         {
-            listplayedCards.Add(playedCards.transform.GetChild(i).gameObject); //This gives a list with the the current slots
+            listplayedCards.Add(playedCards.transform.GetChild(i).GetChild(0).gameObject); // This gives a list with the the current slots
         }
         
-        //Temporal
+        // Temporal
         for (int i = 0; i < listplayedCards.Count; i++) 
         {
             Debug.Log(listplayedCards[i].name);
