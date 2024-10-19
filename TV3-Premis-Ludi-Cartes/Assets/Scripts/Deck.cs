@@ -39,4 +39,16 @@ public class Deck : MonoBehaviour
             //deck.Add();
         }
     }
+
+    public void ShuffleDeck() //This function must be called only after the full deck has been created.
+    {
+        //For each card in deck we change its position
+        for (int i = 0; i < deck.Count - 1; ++i)
+        {
+            int r = UnityEngine.Random.Range(i, deck.Count);
+            var tmp = deck[i];
+            deck[i] = deck[r];
+            deck[r] = tmp;
+        }
+    }
 }
