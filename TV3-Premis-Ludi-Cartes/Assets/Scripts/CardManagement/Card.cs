@@ -41,8 +41,6 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     [HideInInspector] public UnityEvent<Card> EndDragEvent;
     [HideInInspector] public UnityEvent<Card, bool> SelectEvent;
 
-    public Word myWord;
-
     void Start()
     {
         canvas = GetComponentInParent<Canvas>();

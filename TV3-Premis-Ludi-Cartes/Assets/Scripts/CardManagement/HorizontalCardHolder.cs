@@ -48,7 +48,7 @@ public class HorizontalCardHolder : MonoBehaviour
 
             // Add word to the card (Debug, add random word from wordlist) 
             int random = UnityEngine.Random.Range(0, Globals.wordsList.Count);
-            card.gameObject.GetComponent<WordBehaviour>().word = Globals.wordsList[random];
+            card.gameObject.GetComponent<WordBehaviour>().word = Globals.wordsList[random]; //Depending on how this is made if we need to assign the type of word first the random word could be assiged using [random + (int)WORD_TYPE * numWordsCategory /*16 in this case*/]
         }
 
         StartCoroutine(Frame());
@@ -184,11 +184,9 @@ public class HorizontalCardHolder : MonoBehaviour
     }
 
     // Create card when moving from one area to another
-    public void AddCard(Card cardCopied, Word cardWord = null)
+    public void AddCard(Card cardCopied)
     {
         GameObject newCard = Instantiate(slotPrefab, transform);
-
-        
 
         cards.Add(newCard.GetComponentInChildren<Card>());
 
@@ -200,10 +198,7 @@ public class HorizontalCardHolder : MonoBehaviour
         // Add all values from the copied card to the new cone created
         newCard.GetComponentInChildren<Card>().name = cardCopied.gameObject.name;
         newCard.GetComponentInChildren<WordBehaviour>().word = cardCopied.gameObject.GetComponent<WordBehaviour>().word;
-        if (cardCopied != null)
-        {
-            newCard.GetComponentInChildren<Card>().myWord = cardWord; //ERIC: This maybe is incorrect and would need word behaviour. IDK what was the Plan @Sara
-        }
+        
         StartCoroutine(Frame());
 
         IEnumerator Frame()
