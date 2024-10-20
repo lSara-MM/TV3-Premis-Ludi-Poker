@@ -35,6 +35,6 @@ public class PlayCards : MonoBehaviour
             Debug.Log(listplayedCards[i].name);
         }
 
-        handCards.GetComponent<HorizontalCardHolder>().CreateHand();
+        handCards.GetComponent<HorizontalCardHolder>().CreateHand(); // Create new hand after playing
     }
 }
