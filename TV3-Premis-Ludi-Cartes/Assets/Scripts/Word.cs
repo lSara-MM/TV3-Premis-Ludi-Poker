@@ -44,6 +44,12 @@ public class Word
         this.dictionary = Globals.wordsCheckDictionary[type];   // Assign the dictionary checker
     }
 
+    // A method to create a deep copy of the Word object (used for having a copy of the deck)
+    public Word DeepCopy()
+    {
+        return new Word(this.word, this.type);
+    }
+
     public bool Validate(Word w1, WORD_TYPES w2Type)
     {
         return w1.dictionary[w2Type];   // Check word2's type in dictionary

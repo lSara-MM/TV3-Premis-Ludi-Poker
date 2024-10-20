@@ -25,43 +25,12 @@ public class HorizontalCardHolder : MonoBehaviour
     // Play Area
     public GameObject otherArea;
 
+    // Deck
+    public GameObject deck;
+
     void Start()
     {
-        for (int i = 0; i < cardsToSpawn; i++)
-        {
-            Instantiate(slotPrefab, transform);
-        }
-
-        rect = GetComponent<RectTransform>();
-        cards = GetComponentsInChildren<Card>().ToList();
-
-        int cardCount = 0;
-
-        foreach (Card card in cards)
-        {
-            card.PointerEnterEvent.AddListener(CardPointerEnter);
-            card.PointerExitEvent.AddListener(CardPointerExit);
-            card.BeginDragEvent.AddListener(BeginDrag);
-            card.EndDragEvent.AddListener(EndDrag);
-            card.name = cardCount.ToString();
-            cardCount++;
-
-            // Add word to the card (Debug, add random word from wordlist) 
-            int random = UnityEngine.Random.Range(0, Globals.wordsList.Count);
-            card.gameObject.GetComponent<WordBehaviour>().word = Globals.wordsList[random]; //Depending on how this is made if we need to assign the type of word first the random word could be assiged using [random + (int)WORD_TYPE * numWordsCategory /*16 in this case*/]
-        }
-
-        StartCoroutine(Frame());
-
-        IEnumerator Frame()
-        {
-            yield return new WaitForSecondsRealtime(.1f);
-            for (int i = 0; i < cards.Count; i++)
-            {
-                if (cards[i].cardVisual != null)
-                    cards[i].cardVisual.UpdateIndex(transform.childCount);
-            }
-        }
+        Invoke("CreateHand", 0.1f); // Delay, Deck doesn't exist if called at the same time
     }
 
     private void BeginDrag(Card card)
@@ -198,7 +167,7 @@ public class HorizontalCardHolder : MonoBehaviour
         // Add all values from the copied card to the new cone created
         newCard.GetComponentInChildren<Card>().name = cardCopied.gameObject.name;
         newCard.GetComponentInChildren<WordBehaviour>().word = cardCopied.gameObject.GetComponent<WordBehaviour>().word;
-        
+
         StartCoroutine(Frame());
 
         IEnumerator Frame()
@@ -208,6 +177,46 @@ public class HorizontalCardHolder : MonoBehaviour
             if (newCard.GetComponentInChildren<Card>().cardVisual != null)
             {
                 newCard.GetComponentInChildren<Card>().cardVisual.UpdateIndex(transform.childCount);
+            }
+        }
+    }
+    void CreateHand()
+    {
+        int spawn = cardsToSpawn - transform.childCount;
+        for (int i = 0; i < spawn; i++)
+        {
+            Instantiate(slotPrefab, transform);
+        }
+
+        rect = GetComponent<RectTransform>();
+        cards = GetComponentsInChildren<Card>().ToList();
+
+        int cardCount = 0;
+
+        foreach (Card card in cards)
+        {
+            card.PointerEnterEvent.AddListener(CardPointerEnter);
+            card.PointerExitEvent.AddListener(CardPointerExit);
+            card.BeginDragEvent.AddListener(BeginDrag);
+            card.EndDragEvent.AddListener(EndDrag);
+            cardCount++;
+
+            // Add word to the card
+            card.gameObject.GetComponent<WordBehaviour>().word = deck.GetComponent<Deck>().currentDeck[0]; // Depending on how this is made if we need to assign the type of word first the random word could be assiged using [random + (int)WORD_TYPE * numWordsCategory /*16 in this case*/]
+            deck.GetComponent<Deck>().currentDeck.RemoveAt(0);
+
+            card.name = card.gameObject.GetComponent<WordBehaviour>().word.word;
+        }
+
+        StartCoroutine(Frame());
+
+        IEnumerator Frame()
+        {
+            yield return new WaitForSecondsRealtime(.1f);
+            for (int i = 0; i < cards.Count; i++)
+            {
+                if (cards[i].cardVisual != null)
+                    cards[i].cardVisual.UpdateIndex(transform.childCount);
             }
         }
     }

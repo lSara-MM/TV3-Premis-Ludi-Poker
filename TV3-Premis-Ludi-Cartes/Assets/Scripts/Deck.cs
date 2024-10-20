@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using UnityEngine;
 
 public class Deck : MonoBehaviour
 {
     [SerializeField] int deckSize = 48;
-    [SerializeField] List<Word> deck = new List<Word>();
+    [SerializeField] List<Word> deck = new List<Word>(); // Deck to save, maybe put in globals
+    public List<Word> currentDeck = new List<Word>();
 
     [SerializeField] int substantiuSize = 8;
     [SerializeField] int adjSize = 8;
@@ -24,6 +26,9 @@ public class Deck : MonoBehaviour
         GetWordsByType(WORD_TYPES.ADVERBI, advSize);
         GetWordsByType(WORD_TYPES.ARTICLE, artSize);
         GetWordsByType(WORD_TYPES.PRONOM, prnSize);
+
+        currentDeck = deck.Select(word => word.DeepCopy()).ToList();
+        ShuffleDeck();
     }
 
     // Update is called once per frame
@@ -36,19 +41,21 @@ public class Deck : MonoBehaviour
     {
         for (int i = 0; i < size; i++)
         {
-            //deck.Add();
+            List<Word> validWords = Globals.wordsList.Where(word => word.type == type && !deck.Contains(word)).ToList();
+            int random = Random.Range(0, validWords.Count);
+            deck.Add(validWords[random]);
         }
     }
 
-    public void ShuffleDeck() //This function must be called only after the full deck has been created.
+    public void ShuffleDeck() // This function must be called only after the full deck has been created.
     {
         //For each card in deck we change its position
         for (int i = 0; i < deck.Count - 1; ++i)
         {
             int r = UnityEngine.Random.Range(i, deck.Count);
-            var tmp = deck[i];
-            deck[i] = deck[r];
-            deck[r] = tmp;
+            var tmp = currentDeck[i];
+            currentDeck[i] = currentDeck[r];
+            currentDeck[r] = tmp;
         }
     }
 }

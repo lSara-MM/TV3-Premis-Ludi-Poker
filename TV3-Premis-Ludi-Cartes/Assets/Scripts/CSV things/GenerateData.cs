@@ -6,8 +6,7 @@ public class GenerateData : MonoBehaviour
 {
     public List<Word> wordsList = new List<Word>();
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         List<WordsCombinationCheck> wordsCheckerDataList = ReadCSV.Read<WordsCombinationCheck>("CSV/WordsCheck");
 
