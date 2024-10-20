@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayCards : MonoBehaviour
 {
     [SerializeField] GameObject playedCards;
+    [SerializeField] GameObject handCards;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,5 +34,7 @@ public class PlayCards : MonoBehaviour
         {
             Debug.Log(listplayedCards[i].name);
         }
+
+        handCards.GetComponent<HorizontalCardHolder>().CreateHand();
     }
 }

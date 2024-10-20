@@ -344,6 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playedCards: {fileID: 176730501}
+  handCards: {fileID: 667881464}
 --- !u!1 &176730501
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,7 +408,7 @@ MonoBehaviour:
   selectedCard: {fileID: 0}
   hoveredCard: {fileID: 0}
   slotPrefab: {fileID: 3655645598659960977, guid: e99c361e7acdd41f0b904fef6be48fea, type: 3}
-  cardsToSpawn: 4
+  cardsToSpawn: 0
   cards: []
   tweenCardReturn: 1
   otherArea: {fileID: 667881464}

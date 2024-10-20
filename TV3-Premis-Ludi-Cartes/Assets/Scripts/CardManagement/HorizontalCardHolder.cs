@@ -180,7 +180,7 @@ public class HorizontalCardHolder : MonoBehaviour
             }
         }
     }
-    void CreateHand()
+    public void CreateHand()
     {
         int spawn = cardsToSpawn - transform.childCount;
         for (int i = 0; i < spawn; i++)
