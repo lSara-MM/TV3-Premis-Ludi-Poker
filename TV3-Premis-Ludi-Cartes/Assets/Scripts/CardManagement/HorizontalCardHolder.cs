@@ -180,9 +180,15 @@ public class HorizontalCardHolder : MonoBehaviour
             }
         }
     }
-    public void CreateHand()
+    public void CreateHand() // Don't call if deck is empty
     {
         int spawn = cardsToSpawn - transform.childCount;
+
+        if (spawn > deck.GetComponent<Deck>().currentDeck.Count) // Check if cards needed to create hand is greater than the current deck
+        {
+            spawn = deck.GetComponent<Deck>().currentDeck.Count;
+        }
+
         for (int i = 0; i < spawn; i++)
         {
             Instantiate(slotPrefab, transform);
@@ -190,6 +196,13 @@ public class HorizontalCardHolder : MonoBehaviour
 
         rect = GetComponent<RectTransform>();
         cards = GetComponentsInChildren<Card>().ToList();
+
+        List<GameObject> newCards = new List<GameObject>();
+
+        for (int i = spawn; i < transform.childCount; i++)
+        {
+            newCards.Add(transform.GetChild(i).gameObject);
+        }
 
         int cardCount = 0;
 
