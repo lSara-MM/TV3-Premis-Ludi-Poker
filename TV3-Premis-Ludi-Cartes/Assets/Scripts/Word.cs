@@ -54,4 +54,14 @@ public class Word
     {
         return w1.dictionary[w2Type];   // Check word2's type in dictionary
     }
+
+    public bool Validate(WORD_TYPES w2Type)
+    {
+        return this.dictionary[w2Type];   // Check word2's type in dictionary
+    }
+
+    public bool Same(WORD_TYPES w2Type) 
+    {
+        return this.type == w2Type; //Check if is the same type
+    }
 }
