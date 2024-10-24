@@ -815,7 +815,6 @@ RectTransform:
   m_Children:
   - {fileID: 2011223225}
   - {fileID: 1124026624}
-  - {fileID: 716903276}
   m_Father: {fileID: 2074635280}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1256,7 +1255,7 @@ RectTransform:
   m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 544559084}
+  m_Father: {fileID: 2074635280}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1370,7 +1369,6 @@ MonoBehaviour:
   csGenerateData: {fileID: 0}
   goalScore: 0
   playerScore: 0
-  currentLevel: 1
   cs_PlayCards: {fileID: 0}
   scoreCanvas: {fileID: 716903273}
 --- !u!4 &833497503
@@ -2654,6 +2652,7 @@ RectTransform:
   - {fileID: 176730502}
   - {fileID: 667881465}
   - {fileID: 538047727}
+  - {fileID: 716903276}
   - {fileID: 544559084}
   - {fileID: 128949736}
   - {fileID: 954612467}
