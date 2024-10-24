@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7e36d1a89aaa6bd47ae99926e42176b9
+guid: b0c47d0df41f09a419d5254992d9b43d
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Linked Now
+  - TT Chocolates Trl
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
