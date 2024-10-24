@@ -414,7 +414,7 @@ MonoBehaviour:
   otherArea: {fileID: 667881464}
   deck: {fileID: 1296720585}
   delay: 0
-  selectedCards: []
+  listSelectedCards: []
   manageDiscard: 0
 --- !u!114 &176730505
 MonoBehaviour:
@@ -1067,8 +1067,8 @@ MonoBehaviour:
   otherArea: {fileID: 176730501}
   deck: {fileID: 1296720585}
   delay: 0.2
-  selectedCards: []
-  manageDiscard: 1
+  listSelectedCards: []
+  manageDiscard: 0
 --- !u!114 &667881469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1226,6 +1226,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   csGenerateData: {fileID: 0}
+  goalScore: 0
+  playerScore: 0
+  cs_PlayCards: {fileID: 0}
 --- !u!4 &833497503
 Transform:
   m_ObjectHideFlags: 0
@@ -1389,7 +1392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handCards: {fileID: 667881464}
-  numberDiscards: 4
+  numberDiscards: 0
   numberUI: {fileID: 1218197715}
 --- !u!1 &1124026623
 GameObject:

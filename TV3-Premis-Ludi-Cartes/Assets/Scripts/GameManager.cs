@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        csGenerateData = GameObject.Find("Data").GetComponent<GenerateData>();
+        //csGenerateData = GameObject.Find("Data").GetComponent<GenerateData>();
 
         //goalScore = 
     }
@@ -29,9 +29,9 @@ public class GameManager : MonoBehaviour
 
     void CalculateScore()
     {
-        for (int i = 0; i < cs_PlayCards.playedCards.coun; i++)
-        {
+        //for (int i = 0; i < cs_PlayCards.playedCards.co; i++)
+        //{
 
-        }
+        //}
     }
 }

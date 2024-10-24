@@ -201,9 +201,9 @@ public class HorizontalCardHolder : MonoBehaviour
     {
         int spawn = cardsToSpawn - transform.childCount; // Check how many cards are needed to have a full hand
 
-        if (spawn > deck.GetComponent<Deck>().currentDeck.Count) // Check if cards needed to create hand is greater than the current deck
+        if (spawn > deck.GetComponent<Deck>().playerDeck.Count) // Check if cards needed to create hand is greater than the current deck
         {
-            spawn = deck.GetComponent<Deck>().currentDeck.Count;
+            spawn = deck.GetComponent<Deck>().playerDeck.Count;
         }
 
         for (int i = 0; i < spawn; i++)
@@ -241,8 +241,8 @@ public class HorizontalCardHolder : MonoBehaviour
             cardCount++;
 
             // Add word to the card from the current deck, delete the word from the deck
-            card.gameObject.GetComponent<WordBehaviour>().word = deck.GetComponent<Deck>().currentDeck[0]; 
-            deck.GetComponent<Deck>().currentDeck.RemoveAt(0);
+            card.gameObject.GetComponent<WordBehaviour>().word = deck.GetComponent<Deck>().playerDeck[0]; 
+            deck.GetComponent<Deck>().playerDeck.RemoveAt(0);
 
             card.name = card.gameObject.GetComponent<WordBehaviour>().word.word;
         }
