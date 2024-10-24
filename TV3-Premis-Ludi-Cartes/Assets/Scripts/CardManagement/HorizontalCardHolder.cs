@@ -251,7 +251,7 @@ public class HorizontalCardHolder : MonoBehaviour
     {
         foreach (Card card in cards.ToList())
         {
-            if (card.selected)
+            if (card.selected) // Discard only selected cards
             {
                 Destroy(card.transform.parent.gameObject);
                 cards.Remove(card);
