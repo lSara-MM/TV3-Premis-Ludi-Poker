@@ -4,16 +4,21 @@ using System.Diagnostics;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayCards : MonoBehaviour
 {
     public GameObject playedCards;
     [SerializeField] GameObject handCards;
 
+    [SerializeField] private int numberPlays;
+    [SerializeField] private GameObject numberUI;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        numberUI.GetComponent<TextMeshProUGUI>().text = numberPlays.ToString();
     }
 
     // Update is called once per frame
@@ -63,6 +68,14 @@ public class PlayCards : MonoBehaviour
 
         UnityEngine.Debug.Log(numberValidatedCards * 100 + numberEqualCards * 5);
         handCards.GetComponent<HorizontalCardHolder>().CreateHand(); // Create new hand after playing
+
+        numberPlays--;
+        numberUI.GetComponent<TextMeshProUGUI>().text = numberPlays.ToString();
+
+        if (numberPlays == 0)
+        {
+            gameObject.GetComponent<Button>().interactable = false;
+        }
     }
 
     public int CheckSentenceCombo(List<Word> listplayedCards, int start = 0)

@@ -6,6 +6,7 @@ using UnityEngine;
 using DG.Tweening;
 using System.Linq;
 using UnityEditor.PackageManager;
+using UnityEngine.UI;
 
 public class HorizontalCardHolder : MonoBehaviour
 {
@@ -33,9 +34,12 @@ public class HorizontalCardHolder : MonoBehaviour
     // Manage selected cards
     public List<Card> listSelectedCards;
     public bool manageDiscard = false;
+    public Button discardButton; 
+    public Button playButton; 
 
     void Start()
     {
+        rect = GetComponent<RectTransform>();
         if (cardsToSpawn != 0)
         {
             Invoke("CreateHand", 0.1f); // Delay, Deck doesn't exist if called at the same time
@@ -53,7 +57,7 @@ public class HorizontalCardHolder : MonoBehaviour
         if (selectedCard == null)
             return;
 
-        if (otherArea.GetComponent<AreaHandler>().isHovering && !otherArea.GetComponent<HorizontalCardHolder>().cards.Contains(selectedCard))
+        if (otherArea.GetComponent<AreaHandler>().isHovering && !otherArea.GetComponent<HorizontalCardHolder>().cards.Contains(selectedCard) && manageDiscard)
         {
             //selectedCard.transform.parent.transform.SetParent(playArea.transform);
             //cards.Remove(selectedCard);
@@ -66,13 +70,15 @@ public class HorizontalCardHolder : MonoBehaviour
             listSelectedCards.Remove(selectedCard);
             if (listSelectedCards.Count == 0)
             {
-                selectedCard.discardButton.interactable = false;
+                discardButton.interactable = false;
             }
 
             otherArea.GetComponent<HorizontalCardHolder>().AddCard(selectedCard);
 
             Destroy(selectedCard.transform.parent.gameObject);
             cards.Remove(selectedCard);
+
+            playButton.interactable = true; 
         }
         else
         {
@@ -211,7 +217,6 @@ public class HorizontalCardHolder : MonoBehaviour
             Instantiate(slotPrefab, transform);
         }
 
-        rect = GetComponent<RectTransform>();
         cards = GetComponentsInChildren<Card>().ToList(); // Reference to all the cards in the player hand (new + old cards)
 
         List<Card> newCards = new List<Card>(); // List to manage the recently created cards

@@ -10,7 +10,6 @@ using System.Linq;
 public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
 {
     [SerializeField] private HorizontalCardHolder horizontalCardHolder;
-    public Button discardButton; // Maybe put in HorizontalCardHolder
 
     private Canvas canvas;
     private Image imageComponent;
@@ -49,10 +48,6 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     {
         // Manage discard button
         horizontalCardHolder = gameObject.transform.parent.transform.parent.GetComponent<HorizontalCardHolder>();
-        if (horizontalCardHolder.manageDiscard)
-        {
-            discardButton = GameObject.Find("Discard Button").GetComponent<Button>();
-        }
 
         canvas = GetComponentInParent<Canvas>();
         imageComponent = GetComponent<Image>();
@@ -158,7 +153,8 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
         selected = !selected;
 
-        if (horizontalCardHolder.manageDiscard && discardButton.gameObject.GetComponent<DiscardCards>().numberDiscards != 0) // Check if it is the hand Holder and there are discards available
+        // Check if it is the hand Holder and there are discards available
+        if (horizontalCardHolder.manageDiscard && horizontalCardHolder.discardButton.gameObject.GetComponent<DiscardCards>().numberDiscards != 0)
         {
             // Manage selected cards list in the Card holder (parent of parent)
             if (selected)
@@ -173,11 +169,11 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
             // Check if discard button should be interactable
             if (horizontalCardHolder.listSelectedCards.Count == 0)
             {
-                discardButton.interactable = false;
+                horizontalCardHolder.discardButton.interactable = false;
             }
             else
             {
-                discardButton.interactable = true;
+                horizontalCardHolder.discardButton.interactable = true;
             }
         }
 
