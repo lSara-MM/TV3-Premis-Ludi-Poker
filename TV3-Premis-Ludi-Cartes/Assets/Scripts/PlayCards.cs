@@ -43,8 +43,8 @@ public class PlayCards : MonoBehaviour
 
         do
         {
-            numberValidatedCards = CheckSentenceCombo(listplayedCards, numberEqualCards);
-            numberEqualCards = CheckSameTypeCombo(listplayedCards, numberValidatedCards);
+            numberValidatedCards = CheckSentenceCombo(listplayedCards, numberEqualCards + loop);
+            numberEqualCards = CheckSameTypeCombo(listplayedCards, numberValidatedCards + loop);
 
             loop++;
         } while (numberValidatedCards + numberEqualCards < listplayedCards.Count || loop < listplayedCards.Count);
@@ -66,7 +66,7 @@ public class PlayCards : MonoBehaviour
          //}
         }
 
-        UnityEngine.Debug.Log(numberValidatedCards * 100 + numberEqualCards * 5);
+        UnityEngine.Debug.Log(numberValidatedCards + numberEqualCards);
         handCards.GetComponent<HorizontalCardHolder>().CreateHand(); // Create new hand after playing
 
         numberPlays--;
