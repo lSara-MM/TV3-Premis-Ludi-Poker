@@ -158,7 +158,7 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
         selected = !selected;
 
-        if (horizontalCardHolder.manageDiscard)
+        if (horizontalCardHolder.manageDiscard && discardButton.gameObject.GetComponent<DiscardCards>().numberDiscards != 0) // Check if it is the hand Holder and there are discards available
         {
             // Manage selected cards list in the Card holder (parent of parent)
             if (selected)

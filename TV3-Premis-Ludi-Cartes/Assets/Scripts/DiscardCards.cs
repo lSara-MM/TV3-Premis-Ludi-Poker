@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DiscardCards : MonoBehaviour
 {
-    [SerializeField] GameObject handCards;
+    [SerializeField] private GameObject handCards;
+    public int numberDiscards;
+    [SerializeField] private GameObject numberUI;
+
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        numberUI.GetComponent<TextMeshProUGUI>().text = numberDiscards.ToString();
     }
 
     // Update is called once per frame
@@ -26,6 +30,9 @@ public class DiscardCards : MonoBehaviour
 
     private IEnumerator Discard()
     {
+        numberDiscards--;
+        numberUI.GetComponent<TextMeshProUGUI>().text = numberDiscards.ToString();
+
         gameObject.GetComponent<Button>().interactable = false; // Do not allow player to interact with the button while discarding the hand
 
         yield return handCards.GetComponent<HorizontalCardHolder>().DeleteHand(); // Delay to make smooth
