@@ -5,9 +5,13 @@ using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.UI;
+using System.Linq;
 
 public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
 {
+    [SerializeField] private HorizontalCardHolder horizontalCardHolder;
+    [SerializeField] private Button discardButton;
+
     private Canvas canvas;
     private Image imageComponent;
     [SerializeField] private bool instantiateVisual = true;
@@ -43,6 +47,13 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
     void Start()
     {
+        // Manage discard button
+        horizontalCardHolder = gameObject.transform.parent.transform.parent.GetComponent<HorizontalCardHolder>();
+        if (horizontalCardHolder.manageDiscard)
+        {
+            discardButton = GameObject.Find("Discard Button").GetComponent<Button>();
+        }
+
         canvas = GetComponentInParent<Canvas>();
         imageComponent = GetComponent<Image>();
 
@@ -146,6 +157,30 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
             return;
 
         selected = !selected;
+
+        if (horizontalCardHolder.manageDiscard)
+        {
+            // Manage selected cards list in the Card holder (parent of parent)
+            if (selected)
+            {
+                horizontalCardHolder.selectedCards.Add(this);
+            }
+            else if (!selected && horizontalCardHolder.selectedCards.Contains(this))
+            {
+                horizontalCardHolder.selectedCards.Remove(this);
+            }
+
+            // Check if discard button should be interactable
+            if (horizontalCardHolder.selectedCards.Count == 0)
+            {
+                discardButton.interactable = false;
+            }
+            else
+            {
+                discardButton.interactable = true;
+            }
+        }
+
         SelectEvent.Invoke(this, selected);
 
         if (selected)

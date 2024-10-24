@@ -31,6 +31,10 @@ public class DiscardCards : MonoBehaviour
         yield return handCards.GetComponent<HorizontalCardHolder>().DeleteHand(); // Delay to make smooth
 
         handCards.GetComponent<HorizontalCardHolder>().CreateHand();
-        gameObject.GetComponent<Button>().interactable = true;
+
+        //if (handCards.GetComponent<HorizontalCardHolder>().selectedCards.Count != 0)
+        //{
+        //    gameObject.GetComponent<Button>().interactable = true;
+        //}
     }
 }

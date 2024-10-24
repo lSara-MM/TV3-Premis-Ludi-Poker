@@ -17,7 +17,7 @@ public class HorizontalCardHolder : MonoBehaviour
     private RectTransform rect;
 
     [Header("Spawn Settings")]
-    [SerializeField] private int cardsToSpawn = 7;
+    [SerializeField] private int cardsToSpawn = 8;
     public List<Card> cards;
 
     bool isCrossing = false;
@@ -29,6 +29,10 @@ public class HorizontalCardHolder : MonoBehaviour
     // Deck
     public GameObject deck;
     [SerializeField] float delay;
+
+    // Manage selected cards
+    public List<Card> selectedCards;
+    public bool manageDiscard = false;
 
     void Start()
     {
@@ -228,7 +232,7 @@ public class HorizontalCardHolder : MonoBehaviour
             cardCount++;
 
             // Add word to the card from the current deck, delete the word from the deck
-            card.gameObject.GetComponent<WordBehaviour>().word = deck.GetComponent<Deck>().currentDeck[0]; // Depending on how this is made if we need to assign the type of word first the random word could be assiged using [random + (int)WORD_TYPE * numWordsCategory /*16 in this case*/]
+            card.gameObject.GetComponent<WordBehaviour>().word = deck.GetComponent<Deck>().currentDeck[0]; 
             deck.GetComponent<Deck>().currentDeck.RemoveAt(0);
 
             card.name = card.gameObject.GetComponent<WordBehaviour>().word.word;
