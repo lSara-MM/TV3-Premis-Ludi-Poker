@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using DG.Tweening;
 using System.Linq;
+using UnityEditor.PackageManager;
 
 public class HorizontalCardHolder : MonoBehaviour
 {
@@ -53,7 +54,7 @@ public class HorizontalCardHolder : MonoBehaviour
             //cards.Remove(selectedCard);
             //playArea.GetComponent<HorizontalCardHolder>().cards.Add(selectedCard);
 
-            // "Move" card to the other area, just reparenting doesn't work
+            // "Move" card to the other area, just reparenting does not work
             otherArea.GetComponent<HorizontalCardHolder>().AddCard(selectedCard);
 
             Destroy(selectedCard.transform.parent.gameObject);
@@ -185,7 +186,7 @@ public class HorizontalCardHolder : MonoBehaviour
     }
     public void CreateHand() // Don't call if deck is empty
     {
-        int spawn = cardsToSpawn - transform.childCount;
+        int spawn = cardsToSpawn - transform.childCount; // Check how many cards are needed to have a full hand
 
         if (spawn > deck.GetComponent<Deck>().currentDeck.Count) // Check if cards needed to create hand is greater than the current deck
         {
@@ -198,26 +199,35 @@ public class HorizontalCardHolder : MonoBehaviour
         }
 
         rect = GetComponent<RectTransform>();
-        cards = GetComponentsInChildren<Card>().ToList();
+        cards = GetComponentsInChildren<Card>().ToList(); // reference to all the cards in the player hand (new + old cards)
 
-        List<Card> newCards = new List<Card>();
+        List<Card> newCards = new List<Card>(); // List to manage the recently created cards
 
-        for (int i = cards.Count - spawn; i < cards.Count; i++)
+        if (spawn != cardsToSpawn) 
         {
-            newCards.Add(cards[i]); 
+            for (int i = cards.Count - spawn; i < cards.Count; i++) // Check which new cards have been created
+            {
+                newCards.Add(cards[i]);
+            }
+        }
+        else // If the number of cards created is equal to the current player hand, there are no new cards so it is equal to the card list
+        {
+            newCards = cards;
         }
 
         int cardCount = 0;
 
+        // Only create events and add word for the new created cards
         foreach (Card card in newCards)
         {
+            // Add events for the fancy effects
             card.PointerEnterEvent.AddListener(CardPointerEnter);
             card.PointerExitEvent.AddListener(CardPointerExit);
             card.BeginDragEvent.AddListener(BeginDrag);
             card.EndDragEvent.AddListener(EndDrag);
             cardCount++;
 
-            // Add word to the card
+            // Add word to the card from the current deck, delete the word from the deck
             card.gameObject.GetComponent<WordBehaviour>().word = deck.GetComponent<Deck>().currentDeck[0]; // Depending on how this is made if we need to assign the type of word first the random word could be assiged using [random + (int)WORD_TYPE * numWordsCategory /*16 in this case*/]
             deck.GetComponent<Deck>().currentDeck.RemoveAt(0);
 
