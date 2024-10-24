@@ -34,31 +34,29 @@ public class PlayCards : MonoBehaviour
 
         int numberValidatedCards = 0;
         int numberEqualCards = 0;
-        int loop = 0;
 
         do
         {
             numberValidatedCards = CheckSentenceCombo(listplayedCards, numberEqualCards);
             numberEqualCards = CheckSameTypeCombo(listplayedCards, numberValidatedCards);
 
-            loop++;
-        } while (numberValidatedCards + numberEqualCards < listplayedCards.Count || loop < listplayedCards.Count);
+        } while (numberValidatedCards + numberEqualCards < listplayedCards.Count);
 
         {//for (int i = 0; i < listplayedCards.Count; i++)
-         //{
-         //    //Debug.Log(listplayedCards[i].name);
-         //    if (i + 1 < listplayedCards.Count) // Avoid accesing out of bounds of the list
-         //    {
-         //        if (listplayedCards[i].GetComponent<WordBehaviour>().word.Validate(listplayedCards[i + 1].GetComponent<WordBehaviour>().word.type)) // Check if the next word is of a valid type
-         //        {
-         //            numberValidatedCards++;
-         //        }
-         //        else if (listplayedCards[i].GetComponent<WordBehaviour>().word.Same(listplayedCards[i + 1].GetComponent<WordBehaviour>().word.type))
-         //        {
-         //            numberEqualCards++;
-         //        }
-         //    }
-         //}
+        //{
+        //    //Debug.Log(listplayedCards[i].name);
+        //    if (i + 1 < listplayedCards.Count) // Avoid accesing out of bounds of the list
+        //    {
+        //        if (listplayedCards[i].GetComponent<WordBehaviour>().word.Validate(listplayedCards[i + 1].GetComponent<WordBehaviour>().word.type)) // Check if the next word is of a valid type
+        //        {
+        //            numberValidatedCards++;
+        //        }
+        //        else if (listplayedCards[i].GetComponent<WordBehaviour>().word.Same(listplayedCards[i + 1].GetComponent<WordBehaviour>().word.type))
+        //        {
+        //            numberEqualCards++;
+        //        }
+        //    }
+        //}
         }
 
         UnityEngine.Debug.Log(numberValidatedCards * 100 + numberEqualCards * 5);
