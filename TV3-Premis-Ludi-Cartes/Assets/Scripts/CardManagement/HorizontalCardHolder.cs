@@ -89,7 +89,6 @@ public class HorizontalCardHolder : MonoBehaviour
             {
                 Destroy(hoveredCard.transform.parent.gameObject);
                 cards.Remove(hoveredCard);
-
             }
         }
 
@@ -244,6 +243,16 @@ public class HorizontalCardHolder : MonoBehaviour
                 if (newCards[i].cardVisual != null)
                     newCards[i].cardVisual.UpdateIndex(transform.childCount);
             }
+        }
+    }
+
+    public IEnumerator DeleteHand()
+    {
+        foreach (Card card in cards.ToList())
+        {
+            Destroy(card.transform.parent.gameObject);
+            cards.Remove(card);
+            yield return new WaitForSeconds(0.2f);
         }
     }
 }

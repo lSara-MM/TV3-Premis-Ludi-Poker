@@ -36,9 +36,9 @@ public class PlayCards : MonoBehaviour
         for (int i = 0; i < listplayedCards.Count; i++)
         {
             //Debug.Log(listplayedCards[i].name);
-            if (i + 1 < listplayedCards.Count) //Avoid accesing out of bounds of the list
+            if (i + 1 < listplayedCards.Count) // Avoid accesing out of bounds of the list
             {
-                if (listplayedCards[i].GetComponent<WordBehaviour>().word.Validate(listplayedCards[i + 1].GetComponent<WordBehaviour>().word.type)) //Check if the next word is of a valid type
+                if (listplayedCards[i].GetComponent<WordBehaviour>().word.Validate(listplayedCards[i + 1].GetComponent<WordBehaviour>().word.type)) // Check if the next word is of a valid type
                 {
                     numberValidatedCards++;
                 }
