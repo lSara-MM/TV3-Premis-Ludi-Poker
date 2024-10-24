@@ -30,7 +30,10 @@ public class HorizontalCardHolder : MonoBehaviour
 
     void Start()
     {
-        Invoke("CreateHand", 0.1f); // Delay, Deck doesn't exist if called at the same time
+        if (cardsToSpawn != 0)
+        {
+            Invoke("CreateHand", 0.1f); // Delay, Deck doesn't exist if called at the same time
+        }
     }
 
     private void BeginDrag(Card card)
@@ -197,16 +200,16 @@ public class HorizontalCardHolder : MonoBehaviour
         rect = GetComponent<RectTransform>();
         cards = GetComponentsInChildren<Card>().ToList();
 
-        List<GameObject> newCards = new List<GameObject>();
+        List<Card> newCards = new List<Card>();
 
-        for (int i = spawn; i < transform.childCount; i++)
+        for (int i = cards.Count - spawn; i < cards.Count; i++)
         {
-            newCards.Add(transform.GetChild(i).gameObject);
+            newCards.Add(cards[i]); 
         }
 
         int cardCount = 0;
 
-        foreach (Card card in cards)
+        foreach (Card card in newCards)
         {
             card.PointerEnterEvent.AddListener(CardPointerEnter);
             card.PointerExitEvent.AddListener(CardPointerExit);
@@ -226,10 +229,10 @@ public class HorizontalCardHolder : MonoBehaviour
         IEnumerator Frame()
         {
             yield return new WaitForSecondsRealtime(.1f);
-            for (int i = 0; i < cards.Count; i++)
+            for (int i = 0; i < newCards.Count; i++)
             {
-                if (cards[i].cardVisual != null)
-                    cards[i].cardVisual.UpdateIndex(transform.childCount);
+                if (newCards[i].cardVisual != null)
+                    newCards[i].cardVisual.UpdateIndex(transform.childCount);
             }
         }
     }
