@@ -413,6 +413,7 @@ MonoBehaviour:
   tweenCardReturn: 1
   otherArea: {fileID: 667881464}
   deck: {fileID: 1296720585}
+  delay: 0
 --- !u!114 &176730505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1061,6 +1062,7 @@ MonoBehaviour:
   tweenCardReturn: 1
   otherArea: {fileID: 176730501}
   deck: {fileID: 1296720585}
+  delay: 0.2
 --- !u!114 &667881469
 MonoBehaviour:
   m_ObjectHideFlags: 0

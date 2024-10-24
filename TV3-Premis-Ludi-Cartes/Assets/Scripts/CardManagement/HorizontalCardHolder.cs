@@ -28,6 +28,7 @@ public class HorizontalCardHolder : MonoBehaviour
 
     // Deck
     public GameObject deck;
+    [SerializeField] float delay;
 
     void Start()
     {
@@ -252,7 +253,7 @@ public class HorizontalCardHolder : MonoBehaviour
         {
             Destroy(card.transform.parent.gameObject);
             cards.Remove(card);
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(delay);
         }
     }
 }
