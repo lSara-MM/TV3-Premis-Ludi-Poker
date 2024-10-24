@@ -31,7 +31,7 @@ public class HorizontalCardHolder : MonoBehaviour
     [SerializeField] float delay;
 
     // Manage selected cards
-    public List<Card> selectedCards;
+    public List<Card> listSelectedCards;
     public bool manageDiscard = false;
 
     void Start()
@@ -60,6 +60,15 @@ public class HorizontalCardHolder : MonoBehaviour
             //playArea.GetComponent<HorizontalCardHolder>().cards.Add(selectedCard);
 
             // "Move" card to the other area, just reparenting does not work
+            selectedCard.selected = false;
+
+            // Check if discard button should be interactable
+            listSelectedCards.Remove(selectedCard);
+            if (listSelectedCards.Count == 0)
+            {
+                selectedCard.discardButton.interactable = false;
+            }
+
             otherArea.GetComponent<HorizontalCardHolder>().AddCard(selectedCard);
 
             Destroy(selectedCard.transform.parent.gameObject);

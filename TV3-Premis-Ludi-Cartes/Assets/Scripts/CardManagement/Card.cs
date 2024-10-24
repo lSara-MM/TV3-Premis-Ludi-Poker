@@ -10,7 +10,7 @@ using System.Linq;
 public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
 {
     [SerializeField] private HorizontalCardHolder horizontalCardHolder;
-    [SerializeField] private Button discardButton;
+    public Button discardButton; // Maybe put in HorizontalCardHolder
 
     private Canvas canvas;
     private Image imageComponent;
@@ -163,15 +163,15 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
             // Manage selected cards list in the Card holder (parent of parent)
             if (selected)
             {
-                horizontalCardHolder.selectedCards.Add(this);
+                horizontalCardHolder.listSelectedCards.Add(this);
             }
-            else if (!selected && horizontalCardHolder.selectedCards.Contains(this))
+            else if (!selected && horizontalCardHolder.listSelectedCards.Contains(this))
             {
-                horizontalCardHolder.selectedCards.Remove(this);
+                horizontalCardHolder.listSelectedCards.Remove(this);
             }
 
             // Check if discard button should be interactable
-            if (horizontalCardHolder.selectedCards.Count == 0)
+            if (horizontalCardHolder.listSelectedCards.Count == 0)
             {
                 discardButton.interactable = false;
             }
