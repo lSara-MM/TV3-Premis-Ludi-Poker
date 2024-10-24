@@ -251,9 +251,12 @@ public class HorizontalCardHolder : MonoBehaviour
     {
         foreach (Card card in cards.ToList())
         {
-            Destroy(card.transform.parent.gameObject);
-            cards.Remove(card);
-            yield return new WaitForSeconds(delay);
+            if (card.selected)
+            {
+                Destroy(card.transform.parent.gameObject);
+                cards.Remove(card);
+                yield return new WaitForSeconds(delay);
+            }        
         }
     }
 }
