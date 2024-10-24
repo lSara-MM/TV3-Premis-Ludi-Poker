@@ -24,7 +24,7 @@ public class HorizontalCardHolder : MonoBehaviour
     bool isCrossing = false;
     [SerializeField] private bool tweenCardReturn = true;
 
-    // Play Area
+    // Other Area
     public GameObject otherArea;
 
     // Deck
@@ -205,7 +205,8 @@ public class HorizontalCardHolder : MonoBehaviour
     }
     public void CreateHand() // Don't call if deck is empty
     {
-        int spawn = cardsToSpawn - transform.childCount; // Check how many cards are needed to have a full hand
+        // Check how many cards are needed to have a full hand
+        int spawn = cardsToSpawn - transform.childCount - otherArea.GetComponent<HorizontalCardHolder>().cards.Count; 
 
         if (spawn > deck.GetComponent<Deck>().playerDeck.Count) // Check if cards needed to create hand is greater than the current deck
         {
