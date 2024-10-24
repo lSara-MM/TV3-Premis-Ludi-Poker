@@ -199,7 +199,7 @@ public class HorizontalCardHolder : MonoBehaviour
         }
 
         rect = GetComponent<RectTransform>();
-        cards = GetComponentsInChildren<Card>().ToList(); // reference to all the cards in the player hand (new + old cards)
+        cards = GetComponentsInChildren<Card>().ToList(); // Reference to all the cards in the player hand (new + old cards)
 
         List<Card> newCards = new List<Card>(); // List to manage the recently created cards
 
