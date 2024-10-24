@@ -61,6 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72d103f73c46c407db068681e2811968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  horizontalCardHolder: {fileID: 0}
+  discardButton: {fileID: 0}
   instantiateVisual: 1
   moveSpeedLimit: 50
   selected: 0
@@ -103,6 +105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d44e6febdb22047aedc32d0d747d90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  word:
+    word: 
+    type: 0
 --- !u!114 &7486306067316991545
 MonoBehaviour:
   m_ObjectHideFlags: 0
