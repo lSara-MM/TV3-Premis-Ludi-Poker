@@ -8,7 +8,7 @@ public class Deck : MonoBehaviour
 {
     [SerializeField] int deckSize = 48;
     [SerializeField] List<Word> deck = new List<Word>(); // Deck to save, maybe put in globals
-    public List<Word> currentDeck = new List<Word>();
+    public List<Word> playerDeck = new List<Word>();
 
     [SerializeField] int substantiuSize = 8;
     [SerializeField] int adjSize = 8;
@@ -27,7 +27,7 @@ public class Deck : MonoBehaviour
         GetWordsByType(WORD_TYPES.ARTICLE, artSize);
         GetWordsByType(WORD_TYPES.PRONOM, prnSize);
 
-        currentDeck = deck.Select(word => word.DeepCopy()).ToList();
+        playerDeck = deck.Select(word => word.DeepCopy()).ToList();
         ShuffleDeck();
     }
 
@@ -53,9 +53,9 @@ public class Deck : MonoBehaviour
         for (int i = 0; i < deck.Count - 1; ++i)
         {
             int r = UnityEngine.Random.Range(i, deck.Count);
-            var tmp = currentDeck[i];
-            currentDeck[i] = currentDeck[r];
-            currentDeck[r] = tmp;
+            var tmp = playerDeck[i];
+            playerDeck[i] = playerDeck[r];
+            playerDeck[r] = tmp;
         }
     }
 }

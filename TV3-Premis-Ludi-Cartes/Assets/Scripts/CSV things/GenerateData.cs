@@ -5,6 +5,7 @@ using UnityEngine;
 public class GenerateData : MonoBehaviour
 {
     public List<Word> wordsList = new List<Word>();
+    public int playerLvl = 1;
 
     void Awake()
     {
