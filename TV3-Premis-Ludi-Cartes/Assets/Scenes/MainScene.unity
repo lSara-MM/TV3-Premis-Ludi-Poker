@@ -417,7 +417,7 @@ MonoBehaviour:
   tweenCardReturn: 1
   otherArea: {fileID: 667881464}
   deck: {fileID: 1296720585}
-  delay: 0
+  delay: 0.2
   listSelectedCards: []
   manageDiscard: 0
   discardButton: {fileID: 954612468}

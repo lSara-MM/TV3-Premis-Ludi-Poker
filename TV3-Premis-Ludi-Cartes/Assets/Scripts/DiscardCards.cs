@@ -35,7 +35,8 @@ public class DiscardCards : MonoBehaviour
 
         gameObject.GetComponent<Button>().interactable = false; // Do not allow player to interact with the button while discarding the hand
 
-        yield return handCards.GetComponent<HorizontalCardHolder>().DeleteHand(); // Delay to make smooth
+        // Function in coroutine to make it smoother
+        yield return handCards.GetComponent<HorizontalCardHolder>().DeleteCardList(handCards.GetComponent<HorizontalCardHolder>().listSelectedCards);
 
         handCards.GetComponent<HorizontalCardHolder>().CreateHand();
 

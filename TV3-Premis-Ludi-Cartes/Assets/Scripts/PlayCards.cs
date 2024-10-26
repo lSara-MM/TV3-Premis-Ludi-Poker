@@ -87,16 +87,8 @@ public class PlayCards : MonoBehaviour
         UnityEngine.Debug.Log($"{numberValidatedCards} + {numberEqualCards}");
         gameManager.CalculateScore(numberValidatedCards, numberEqualCards);
 
-
-        handCards.GetComponent<HorizontalCardHolder>().CreateHand(); // Create new hand after playing
-
-        numberPlays--;
-        numberUI.GetComponent<TextMeshProUGUI>().text = numberPlays.ToString();
-
-        if (numberPlays == 0)
-        {
-            gameObject.GetComponent<Button>().interactable = false;
-        }
+        // Delete played cards
+        StartCoroutine(DeletePlayed());
     }
 
     public int CheckSentenceCombo(List<Word> listplayedCards, int start = 0)
@@ -145,6 +137,27 @@ public class PlayCards : MonoBehaviour
         else
         {
             gameObject.GetComponent<Button>().interactable = true;
+        }
+    }
+
+    // Delete played cards
+    private IEnumerator DeletePlayed()
+    {
+        gameObject.GetComponent<Button>().interactable = false; // Do not allow player to interact with the button while ccalculating score the hand
+
+        // Function in coroutine to make it smoother
+        yield return playedCards.GetComponent<HorizontalCardHolder>().DeleteCardList(playedCards.GetComponent<HorizontalCardHolder>().cards);
+
+        // Create new hand after playing
+        handCards.GetComponent<HorizontalCardHolder>().CreateHand();
+
+        // Manage UI Play Button
+        numberPlays--;
+        numberUI.GetComponent<TextMeshProUGUI>().text = numberPlays.ToString();
+
+        if (numberPlays == 0)
+        {
+            gameObject.GetComponent<Button>().interactable = false;
         }
     }
 }

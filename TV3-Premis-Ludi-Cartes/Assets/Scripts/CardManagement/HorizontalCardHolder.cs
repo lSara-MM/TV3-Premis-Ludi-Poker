@@ -34,8 +34,8 @@ public class HorizontalCardHolder : MonoBehaviour
     // Manage selected cards
     public List<Card> listSelectedCards;
     public bool manageDiscard = false;
-    public Button discardButton; 
-    public Button playButton; 
+    public Button discardButton;
+    public Button playButton;
 
     void Start()
     {
@@ -210,7 +210,7 @@ public class HorizontalCardHolder : MonoBehaviour
     public void CreateHand() // Don't call if deck is empty
     {
         // Check how many cards are needed to have a full hand
-        int spawn = cardsToSpawn - transform.childCount - otherArea.GetComponent<HorizontalCardHolder>().cards.Count; 
+        int spawn = cardsToSpawn - transform.childCount - otherArea.GetComponent<HorizontalCardHolder>().cards.Count;
 
         if (spawn > deck.GetComponent<Deck>().playerDeck.Count) // Check if cards needed to create hand is greater than the current deck
         {
@@ -226,7 +226,7 @@ public class HorizontalCardHolder : MonoBehaviour
 
         List<Card> newCards = new List<Card>(); // List to manage the recently created cards
 
-        if (spawn != cardsToSpawn) 
+        if (spawn != cardsToSpawn)
         {
             for (int i = cards.Count - spawn; i < cards.Count; i++) // Check which new cards have been created
             {
@@ -251,7 +251,7 @@ public class HorizontalCardHolder : MonoBehaviour
             cardCount++;
 
             // Add word to the card from the current deck, delete the word from the deck
-            card.gameObject.GetComponent<WordBehaviour>().word = deck.GetComponent<Deck>().playerDeck[0]; 
+            card.gameObject.GetComponent<WordBehaviour>().word = deck.GetComponent<Deck>().playerDeck[0];
             deck.GetComponent<Deck>().playerDeck.RemoveAt(0);
 
             card.name = card.gameObject.GetComponent<WordBehaviour>().word.word;
@@ -270,22 +270,19 @@ public class HorizontalCardHolder : MonoBehaviour
         }
     }
 
-    public IEnumerator DeleteHand()
+    public IEnumerator DeleteCardList(List<Card> listCards)
     {
-        foreach (Card card in cards.ToList())
+        foreach (Card card in listCards.ToList())
         {
-            if (card.selected) // Discard only selected cards
+            Destroy(card.transform.parent.gameObject);
+            cards.Remove(card);
+
+            if (listSelectedCards.Contains(card)) // Clean card from selected list, bugs discard button otherwise
             {
-                Destroy(card.transform.parent.gameObject);
-                cards.Remove(card);
+                listSelectedCards.Remove(card);
+            }
 
-                if (listSelectedCards.Contains(card)) // Clean card from selected list, bugs discard button otherwise
-                {
-                    listSelectedCards.Remove(card);
-                }
-
-                yield return new WaitForSeconds(delay);
-            }        
+            yield return new WaitForSeconds(delay);
         }
     }
 }
