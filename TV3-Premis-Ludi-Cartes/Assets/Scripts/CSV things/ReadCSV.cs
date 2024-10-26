@@ -43,6 +43,11 @@ public class ReadCSV : MonoBehaviour
                 {
                     try
                     {
+                        if (values[j].Contains("!"))
+                        {
+                            values[j] = values[j].Replace("!", "\n");
+                        }
+
                         // Check if the property type is an enum
                         if (property.PropertyType.IsEnum)
                         {
