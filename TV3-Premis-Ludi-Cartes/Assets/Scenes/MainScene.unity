@@ -420,8 +420,8 @@ MonoBehaviour:
   delay: 0
   listSelectedCards: []
   manageDiscard: 0
-  discardButton: {fileID: 0}
-  playButton: {fileID: 0}
+  discardButton: {fileID: 954612468}
+  playButton: {fileID: 128949737}
 --- !u!114 &176730505
 MonoBehaviour:
   m_ObjectHideFlags: 0

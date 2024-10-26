@@ -134,4 +134,17 @@ public class PlayCards : MonoBehaviour
 
         return i;
     }
+
+    // Disable button if there are no played cards, otherwise enable it
+    public void CheckInteractable()
+    {
+        if (playedCards.GetComponent<HorizontalCardHolder>().cards.Count == 0)
+        {
+            gameObject.GetComponent<Button>().interactable = false;
+        }
+        else
+        {
+            gameObject.GetComponent<Button>().interactable = true;
+        }
+    }
 }

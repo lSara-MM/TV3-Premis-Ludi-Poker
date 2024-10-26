@@ -57,7 +57,7 @@ public class HorizontalCardHolder : MonoBehaviour
         if (selectedCard == null)
             return;
 
-        if (otherArea.GetComponent<AreaHandler>().isHovering && !otherArea.GetComponent<HorizontalCardHolder>().cards.Contains(selectedCard) && manageDiscard)
+        if (otherArea.GetComponent<AreaHandler>().isHovering && !otherArea.GetComponent<HorizontalCardHolder>().cards.Contains(selectedCard))
         {
             //selectedCard.transform.parent.transform.SetParent(playArea.transform);
             //cards.Remove(selectedCard);
@@ -67,10 +67,13 @@ public class HorizontalCardHolder : MonoBehaviour
             selectedCard.selected = false;
 
             // Check if discard button should be interactable
-            listSelectedCards.Remove(selectedCard);
-            if (listSelectedCards.Count == 0)
+            if (manageDiscard)
             {
-                discardButton.interactable = false;
+                listSelectedCards.Remove(selectedCard);
+                if (listSelectedCards.Count == 0)
+                {
+                    discardButton.interactable = false;
+                }
             }
 
             otherArea.GetComponent<HorizontalCardHolder>().AddCard(selectedCard);
@@ -78,7 +81,8 @@ public class HorizontalCardHolder : MonoBehaviour
             Destroy(selectedCard.transform.parent.gameObject);
             cards.Remove(selectedCard);
 
-            playButton.interactable = true; 
+            // Check if play button should be interactable
+            playButton.GetComponent<PlayCards>().CheckInteractable();
         }
         else
         {
@@ -274,6 +278,12 @@ public class HorizontalCardHolder : MonoBehaviour
             {
                 Destroy(card.transform.parent.gameObject);
                 cards.Remove(card);
+
+                if (listSelectedCards.Contains(card)) // Clean card from selected list, bugs discard button otherwise
+                {
+                    listSelectedCards.Remove(card);
+                }
+
                 yield return new WaitForSeconds(delay);
             }        
         }
