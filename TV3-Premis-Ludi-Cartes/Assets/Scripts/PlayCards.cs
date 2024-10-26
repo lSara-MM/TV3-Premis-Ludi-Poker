@@ -15,6 +15,8 @@ public class PlayCards : MonoBehaviour
     [SerializeField] private int numberPlays;
     [SerializeField] private GameObject numberUI;
 
+    [SerializeField] private GameManager gameManager; //We need access to the script to call the function and add the score
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,39 +41,53 @@ public class PlayCards : MonoBehaviour
 
         int numberValidatedCards = 0;
         int numberEqualCards = 0;
-        int loop = 0;
 
-        do
+
+        bool lastWasVal = false, lastWasSame = false;
+
+        for (int i = 0; i < listplayedCards.Count; i++)
         {
-            numberValidatedCards = CheckSentenceCombo(listplayedCards, numberValidatedCards);
-            loop++;
-        } while (numberValidatedCards < listplayedCards.Count || loop < listplayedCards.Count);
+            if (i + 1 < listplayedCards.Count) // Avoid accesing out of bounds of the list
+            {
+                if (listplayedCards[i].Validate(listplayedCards[i + 1].type))
+                {
+                    lastWasVal = true;
+                    if (lastWasSame)
+                    {
+                        lastWasSame = false;
+                    }
+                    else
+                    {
+                        UnityEngine.Debug.Log(listplayedCards[i].word + " con " + listplayedCards[i + 1].word);
+                        numberValidatedCards++;
+                    }
+                }
+                else if (listplayedCards[i].Same(listplayedCards[i + 1].type))
+                {
+                    lastWasSame = true;
+                    if (lastWasVal)
+                    {
+                        lastWasVal = false;
+                    }
+                    else
+                    {
+                        UnityEngine.Debug.Log(listplayedCards[i].word + " = " + listplayedCards[i + 1].word);
+                        numberEqualCards++;
+                    }
+                }
+                else 
+                {
+                    lastWasVal = false;
+                    lastWasSame = false;
 
-        do
-        {
-            numberEqualCards = CheckSameTypeCombo(listplayedCards, numberEqualCards);
-
-            loop++;
-        } while (numberEqualCards < listplayedCards.Count || loop < listplayedCards.Count);
-
-        {//for (int i = 0; i < listplayedCards.Count; i++)
-         //{
-         //    //Debug.Log(listplayedCards[i].name);
-         //    if (i + 1 < listplayedCards.Count) // Avoid accesing out of bounds of the list
-         //    {
-         //        if (listplayedCards[i].GetComponent<WordBehaviour>().word.Validate(listplayedCards[i + 1].GetComponent<WordBehaviour>().word.type)) // Check if the next word is of a valid type
-         //        {
-         //            numberValidatedCards++;
-         //        }
-         //        else if (listplayedCards[i].GetComponent<WordBehaviour>().word.Same(listplayedCards[i + 1].GetComponent<WordBehaviour>().word.type))
-         //        {
-         //            numberEqualCards++;
-         //        }
-         //    }
-         //}
+                }
+            }
         }
 
         UnityEngine.Debug.Log($"{numberValidatedCards} + {numberEqualCards}");
+        gameManager.CalculateScore(numberValidatedCards, numberEqualCards);
+
+
         handCards.GetComponent<HorizontalCardHolder>().CreateHand(); // Create new hand after playing
 
         numberPlays--;
