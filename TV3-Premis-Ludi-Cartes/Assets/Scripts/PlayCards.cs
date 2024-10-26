@@ -119,4 +119,6 @@ public class PlayCards : MonoBehaviour
             gameObject.GetComponent<Button>().interactable = false;
         }
     }
+
+    public int GetNumberPlays() {  return numberPlays; }
 }

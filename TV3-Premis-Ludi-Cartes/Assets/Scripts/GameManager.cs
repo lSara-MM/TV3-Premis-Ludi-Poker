@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject playerScoreCanvas;
     [SerializeField] GameObject scoreCanvas;
 
+    [SerializeField] PlayCards playCards; //We need a reference to the script to see if the player has lost.
+
     //Value that each scored card gives, this is not a base number due to being able to be upgraded (maybe should go at data)
     public int validatedCardScore = 35;
     public int equalCardScore = 30;
@@ -68,8 +70,6 @@ public class GameManager : MonoBehaviour
             if (listCombos[i][0].Validate(listCombos[i][1].type))
             {
                 playerScore += n * (n + 1) / 2 * (n / 2) * validatedCardScore;
-
-                //Here could be more complex calculation if needed
             }
             else
             {
@@ -79,6 +79,9 @@ public class GameManager : MonoBehaviour
 
         //Modify current player score
         playerScoreCanvas.GetComponent<TextMeshProUGUI>().text = playerScore.ToString();
+
+        //See if the player has winned
+        CheckWinOrLose();
     }
 
     int SetGoalScore(int level) 
@@ -89,5 +92,21 @@ public class GameManager : MonoBehaviour
         int exponentialDificulty = (level / 3) * (level / 3 + 1) / 2 * 45;
 
         return baseScore+linearScaling+escalingDificulty+exponentialDificulty;
+    }
+
+    public IEnumerator CheckWinOrLose() 
+    {
+        if (playerScore >= goalScore) 
+        {
+            yield return 0.5f; //Wait before winning
+
+            //Win
+        }
+        else if(playCards.GetNumberPlays() == 0) //Only if we haven't won and we have 0 hands to play we lose.
+        {
+            yield return 0.5f; //Wait before losing
+
+            //Lose
+        }
     }
 }
