@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -100,7 +101,7 @@ public class GameManager : MonoBehaviour
         {
             yield return 0.5f; //Wait before winning
 
-            //Win
+            this.gameObject.GetComponent<SwitchScene>().ChangeScene("Deck Upgrade Scene");
         }
         else if(playCards.GetNumberPlays() == 0) //Only if we haven't won and we have 0 hands to play we lose.
         {
