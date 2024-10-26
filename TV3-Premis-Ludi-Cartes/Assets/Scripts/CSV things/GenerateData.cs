@@ -27,4 +27,11 @@ public class GenerateData : MonoBehaviour
         // DEBUG
         wordsList = Globals.wordsList;
     }
+
+    public void Reset()
+    {
+        playerLvl = 1;
+
+        //Set all cards upgrades to 0.
+    }
 }

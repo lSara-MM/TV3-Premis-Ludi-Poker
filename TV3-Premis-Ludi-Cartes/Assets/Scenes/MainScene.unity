@@ -1462,7 +1462,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a2d711ff49d324e8d77ed0c952991f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notDestroys: []
+  notDestroys:
+  - {fileID: 1267611763}
 --- !u!1 &954612466
 GameObject:
   m_ObjectHideFlags: 0
@@ -2065,7 +2066,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wordsList: []
-  playerLvl: 12
+  playerLvl: 0
 --- !u!4 &1267611765
 Transform:
   m_ObjectHideFlags: 0

@@ -101,13 +101,18 @@ public class GameManager : MonoBehaviour
         {
             yield return 0.5f; //Wait before winning
 
+            csGenerateData.playerLvl++;
             this.gameObject.GetComponent<SwitchScene>().ChangeScene("Deck Upgrade Scene");
         }
         else if(playCards.GetNumberPlays() == 0) //Only if we haven't won and we have 0 hands to play we lose.
         {
             yield return 0.5f; //Wait before losing
 
+            csGenerateData.Reset();
+            this.gameObject.GetComponent<SwitchScene>().ChangeScene("Intro Scene");
             //Lose
         }
+
+        yield return 0;
     }
 }
