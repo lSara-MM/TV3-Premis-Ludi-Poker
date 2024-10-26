@@ -59,6 +59,16 @@ public class GameManager : MonoBehaviour
         playerScoreCanvas.GetComponent<TextMeshProUGUI>().text = playerScore.ToString();
     }
 
+    public void CalculateScore(List<List<Word>> listCombos)
+    {
+        
+
+        playerScore += 10;
+
+        //Modify current punctution
+        playerScoreCanvas.GetComponent<TextMeshProUGUI>().text = playerScore.ToString();
+    }
+
     int SetGoalScore(int level) 
     {
         int baseScore = 300;
