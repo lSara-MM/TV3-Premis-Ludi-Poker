@@ -39,55 +39,7 @@ public class PlayCards : MonoBehaviour
             listplayedCards.Add(playedCards.transform.GetChild(i).GetChild(0).gameObject.GetComponent<WordBehaviour>().word); // This gives a list with the the current slots
         }
 
-        int numberValidatedCards = 0;
-        int numberEqualCards = 0;
-
-
-        bool lastWasVal = false, lastWasSame = false;
-
-        //for (int i = 0; i < listplayedCards.Count; i++)
-        //{
-        //    if (i + 1 < listplayedCards.Count) // Avoid accesing out of bounds of the list
-        //    {
-        //        if (listplayedCards[i].Validate(listplayedCards[i + 1].type))
-        //        {
-        //            lastWasVal = true;
-        //            if (lastWasSame)
-        //            {
-        //                lastWasSame = false;
-        //            }
-        //            else
-        //            {
-        //                UnityEngine.Debug.Log(listplayedCards[i].word + " con " + listplayedCards[i + 1].word);
-        //                numberValidatedCards++;
-        //            }
-        //        }
-        //        else if (listplayedCards[i].Same(listplayedCards[i + 1].type))
-        //        {
-        //            lastWasSame = true;
-        //            if (lastWasVal)
-        //            {
-        //                lastWasVal = false;
-        //            }
-        //            else
-        //            {
-        //                UnityEngine.Debug.Log(listplayedCards[i].word + " = " + listplayedCards[i + 1].word);
-        //                numberEqualCards++;
-        //            }
-        //        }
-        //        else 
-        //        {
-        //            lastWasVal = false;
-        //            lastWasSame = false;
-
-        //        }
-        //    }
-        //}
-
         gameManager.CalculateScore(CombosSeparator(listplayedCards));
-
-        UnityEngine.Debug.Log($"{numberValidatedCards} + {numberEqualCards}");
-        gameManager.CalculateScore(numberValidatedCards, numberEqualCards);
 
         // Delete played cards
         StartCoroutine(DeletePlayed());
@@ -121,7 +73,7 @@ public class PlayCards : MonoBehaviour
 
                     //We reset the values to start checking again
                     validating = repeating = false;
-                    currentCombo.Clear();
+                    currentCombo = new List<Word>();
                 }
             }
             else if (validating || repeating) //This case is necesary to not access out of range of the list of words

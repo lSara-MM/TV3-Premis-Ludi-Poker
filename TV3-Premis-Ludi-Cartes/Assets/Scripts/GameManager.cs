@@ -61,11 +61,23 @@ public class GameManager : MonoBehaviour
 
     public void CalculateScore(List<List<Word>> listCombos)
     {
-        
+        for(int i = 0; i < listCombos.Count; i++) 
+        {
+            int n = listCombos[i].Count;
+            //Once we detect if it was a equals or validation combo we do things
+            if (listCombos[i][0].Validate(listCombos[i][1].type))
+            {
+                playerScore += n * (n + 1) / 2 * (n / 2) * validatedCardScore;
 
-        playerScore += 10;
+                //Here could be more complex calculation if needed
+            }
+            else
+            {
+                playerScore += n * (n + 1) / 2 * equalCardScore;
+            }
+        }
 
-        //Modify current punctution
+        //Modify current player score
         playerScoreCanvas.GetComponent<TextMeshProUGUI>().text = playerScore.ToString();
     }
 
