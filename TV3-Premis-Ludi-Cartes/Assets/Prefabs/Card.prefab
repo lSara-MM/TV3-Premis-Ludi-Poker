@@ -62,7 +62,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalCardHolder: {fileID: 0}
-  discardButton: {fileID: 0}
   instantiateVisual: 1
   moveSpeedLimit: 50
   selected: 0
@@ -108,6 +107,13 @@ MonoBehaviour:
   word:
     word: 
     type: 0
+  sprites:
+  - {fileID: 21300000, guid: 55ac44e3791d0b6428df2322c43c9aed, type: 3}
+  - {fileID: 21300000, guid: bbb377bcfd137324ba9ab2b4f3ee71fe, type: 3}
+  - {fileID: 21300000, guid: c1c502251cb5ca54b89add2d77a12827, type: 3}
+  - {fileID: 21300000, guid: 32fe0289fa1e20942aaa4df4b7833e29, type: 3}
+  - {fileID: 21300000, guid: bbb377bcfd137324ba9ab2b4f3ee71fe, type: 3}
+  - {fileID: 21300000, guid: bbb377bcfd137324ba9ab2b4f3ee71fe, type: 3}
 --- !u!114 &7486306067316991545
 MonoBehaviour:
   m_ObjectHideFlags: 0
