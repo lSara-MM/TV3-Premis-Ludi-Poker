@@ -99,14 +99,14 @@ public class GameManager : MonoBehaviour
     {
         if (playerScore >= goalScore) 
         {
-            yield return 0.5f; //Wait before winning
+            yield return 2.5f; //Wait before winning
 
             csGenerateData.playerLvl++;
             this.gameObject.GetComponent<SwitchScene>().ChangeScene("DeckUpgradeScene");
         }
         else if(playCards.GetNumberPlays() == 0) //Only if we haven't won and we have 0 hands to play we lose.
         {
-            yield return 0.5f; //Wait before losing
+            yield return 2.5f; //Wait before losing
 
             csGenerateData.Reset();
             this.gameObject.GetComponent<SwitchScene>().ChangeScene("IntroScene");
