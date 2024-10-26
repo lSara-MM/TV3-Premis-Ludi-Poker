@@ -15,7 +15,7 @@ public class AreaHandler : MonoBehaviour
     private RectTransform targetRectTransform;
 
     // Know if there is any selected card from the other Area (not checking if all the time)
-    public GameObject otherArea;
+    public GameObject otherAreaGroup;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +25,7 @@ public class AreaHandler : MonoBehaviour
 
     void Update()
     {
-        if (otherArea.GetComponent<HorizontalCardHolder>().selectedCard != null) { isHovering = IsMouseOverUIElement(); }
+        if (otherAreaGroup.GetComponent<HorizontalCardHolder>().selectedCard != null) { isHovering = IsMouseOverUIElement(); }
     }
 
     // Function to check if the mouse is over the UI element
