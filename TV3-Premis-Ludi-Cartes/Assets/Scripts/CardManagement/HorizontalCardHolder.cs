@@ -24,7 +24,7 @@ public class HorizontalCardHolder : MonoBehaviour
     bool isCrossing = false;
     [SerializeField] private bool tweenCardReturn = true;
 
-    // Other Area
+    // Other Area to check if mouse is inside to change card area
     public GameObject otherArea;
 
     // Deck
@@ -57,7 +57,7 @@ public class HorizontalCardHolder : MonoBehaviour
         if (selectedCard == null)
             return;
 
-        if (otherArea.GetComponent<AreaHandler>().isHovering && !otherArea.GetComponent<HorizontalCardHolder>().cards.Contains(selectedCard))
+        if (otherArea.GetComponent<AreaHandler>().isHovering && !otherArea.GetComponentInChildren<HorizontalCardHolder>().cards.Contains(selectedCard))
         {
             //selectedCard.transform.parent.transform.SetParent(playArea.transform);
             //cards.Remove(selectedCard);
@@ -76,7 +76,7 @@ public class HorizontalCardHolder : MonoBehaviour
                 }
             }
 
-            otherArea.GetComponent<HorizontalCardHolder>().AddCard(selectedCard);
+            otherArea.GetComponentInChildren<HorizontalCardHolder>().AddCard(selectedCard);
 
             Destroy(selectedCard.transform.parent.gameObject);
             cards.Remove(selectedCard);
@@ -210,7 +210,7 @@ public class HorizontalCardHolder : MonoBehaviour
     public void CreateHand() // Don't call if deck is empty
     {
         // Check how many cards are needed to have a full hand
-        int spawn = cardsToSpawn - transform.childCount - otherArea.GetComponent<HorizontalCardHolder>().cards.Count;
+        int spawn = cardsToSpawn - transform.childCount - otherArea.GetComponentInChildren<HorizontalCardHolder>().cards.Count;
 
         if (spawn > deck.GetComponent<Deck>().playerDeck.Count) // Check if cards needed to create hand is greater than the current deck
         {
