@@ -156,7 +156,7 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         // Tap audio, different if already selected
         if (selected)
         {
-            horizontalCardHolder.gameObject.GetComponent<AudioSource>().PlayOneShot(horizontalCardHolder.selectedTapClip);
+            horizontalCardHolder.gameObject.GetComponent<AudioSource>().PlayOneShot(horizontalCardHolder.selectTapClip);
         }
         else
         {

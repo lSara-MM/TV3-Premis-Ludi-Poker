@@ -37,7 +37,7 @@ public class HorizontalCardHolder : MonoBehaviour
     // Audio clips
     [SerializeField] private AudioClip drawClip;
     [SerializeField] private AudioClip discardClip;
-    [SerializeField] public AudioClip selectedTapClip;
+    [SerializeField] public AudioClip selectTapClip;
     [SerializeField] public AudioClip deselectTapClip;
 
 
