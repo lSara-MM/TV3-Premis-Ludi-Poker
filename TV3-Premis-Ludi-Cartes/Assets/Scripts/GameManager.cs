@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private PlayCards cs_PlayCards;
 
-    [SerializeField] GameObject playerScoreCanvas;
+    //[SerializeField] GameObject playerScoreCanvas;
     [SerializeField] GameObject scoreCanvas;
 
     [SerializeField] PlayCards playCards; //We need a reference to the script to see if the player has lost.
@@ -29,8 +29,8 @@ public class GameManager : MonoBehaviour
         goalScore = SetGoalScore(csGenerateData.playerLvl);
 
         //Set the text renderer to show score to win
-        playerScoreCanvas.GetComponent<TextMeshProUGUI>().text = playerScore.ToString();
-        scoreCanvas.GetComponent<TextMeshProUGUI>().text = goalScore.ToString();
+        //playerScoreCanvas.GetComponent<TextMeshProUGUI>().text = playerScore.ToString();
+        scoreCanvas.GetComponent<TextMeshProUGUI>().text = playerScore.ToString() + " / " + goalScore.ToString();
     }
 
     // Update is called once per frame
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
         playerScore += validatedScoredPoints + equalScoredPoints;
 
         //Modify current punctution
-        playerScoreCanvas.GetComponent<TextMeshProUGUI>().text = playerScore.ToString();
+        scoreCanvas.GetComponent<TextMeshProUGUI>().text = playerScore.ToString() + " / " + goalScore.ToString();
     }
 
     public void CalculateScore(List<List<Word>> listCombos)
@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
         }
 
         //Modify current player score
-        playerScoreCanvas.GetComponent<TextMeshProUGUI>().text = playerScore.ToString();
+        scoreCanvas.GetComponent<TextMeshProUGUI>().text = playerScore.ToString() + " / " + goalScore.ToString(); ;
 
         //See if the player has winned
         StartCoroutine(CheckWinOrLose());
@@ -97,14 +97,14 @@ public class GameManager : MonoBehaviour
     {
         if (playerScore >= goalScore) 
         {
-            yield return 2.5f; //Wait before winning
+            yield return new WaitForSeconds(2); //Wait before winning
 
             csGenerateData.playerLvl++;
             this.gameObject.GetComponent<SwitchScene>().ChangeScene("DeckUpgradeScene");
         }
         else if(playCards.GetNumberPlays() == 0) //Only if we haven't won and we have 0 hands to play we lose.
         {
-            yield return 2.5f; //Wait before losing
+            yield return new WaitForSeconds(2); //Wait before losing
 
             csGenerateData.Reset();
             this.gameObject.GetComponent<SwitchScene>().ChangeScene("IntroScene");

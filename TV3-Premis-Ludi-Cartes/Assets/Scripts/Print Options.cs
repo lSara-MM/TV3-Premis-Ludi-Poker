@@ -29,7 +29,7 @@ public class PrintScoreByOptions : MonoBehaviour
 
         myText.text = "";
 
-        PrintData(0);
+        //PrintData(0);
     }
 
     public void PrintData(int printMode) 
