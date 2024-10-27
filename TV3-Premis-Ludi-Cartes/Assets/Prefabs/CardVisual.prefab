@@ -155,8 +155,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "New T\xF2\xED \xE0"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 401e52b63069c824f90bc512ce7e14a5, type: 2}
-  m_sharedMaterial: {fileID: 8189775067118936703, guid: 401e52b63069c824f90bc512ce7e14a5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 05859b50993cc344a83a81fcd34c8cc0, type: 2}
+  m_sharedMaterial: {fileID: 5880788820099496226, guid: 05859b50993cc344a83a81fcd34c8cc0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
