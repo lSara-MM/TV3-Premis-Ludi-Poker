@@ -39,6 +39,8 @@ public class HorizontalCardHolder : MonoBehaviour
     [SerializeField] private AudioClip discardClip;
     [SerializeField] public AudioClip selectTapClip;
     [SerializeField] public AudioClip deselectTapClip;
+    [SerializeField] public AudioClip dragClip;
+    [SerializeField] public AudioClip dragClip2;
 
 
     void Start()
@@ -52,6 +54,7 @@ public class HorizontalCardHolder : MonoBehaviour
 
     private void BeginDrag(Card card)
     {
+        GetComponent<AudioSource>().PlayOneShot(dragClip);
         selectedCard = card;
     }
 
@@ -60,6 +63,8 @@ public class HorizontalCardHolder : MonoBehaviour
     {
         if (selectedCard == null)
             return;
+
+        GetComponent<AudioSource>().PlayOneShot(dragClip2);
 
         if (otherArea.GetComponent<AreaHandler>().isHovering && !otherArea.GetComponentInChildren<HorizontalCardHolder>().cards.Contains(selectedCard))
         {
