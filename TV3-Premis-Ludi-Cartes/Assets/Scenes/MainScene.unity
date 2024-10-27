@@ -1032,8 +1032,10 @@ MonoBehaviour:
   playButton: {fileID: 128949737}
   drawClip: {fileID: 8300000, guid: 785e511558e816d4c87e0ac2a85c2bc1, type: 3}
   discardClip: {fileID: 8300000, guid: ee7abcbb20ac12f428b7b351b7459784, type: 3}
-  selectTapClip: {fileID: 0}
+  selectTapClip: {fileID: 8300000, guid: 42d1a3cf67b82174780cd7f1765378a1, type: 3}
   deselectTapClip: {fileID: 8300000, guid: 7a2a4a012832d964bba54be4a2072012, type: 3}
+  dragClip: {fileID: 8300000, guid: 93758fedaeedd3241a8b416d7dc44efa, type: 3}
+  dragClip2: {fileID: 8300000, guid: 0ede363c050cc3f4fb3c80e42f6d4998, type: 3}
 --- !u!114 &176730505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3172,8 +3174,10 @@ MonoBehaviour:
   playButton: {fileID: 128949737}
   drawClip: {fileID: 8300000, guid: 785e511558e816d4c87e0ac2a85c2bc1, type: 3}
   discardClip: {fileID: 8300000, guid: ee7abcbb20ac12f428b7b351b7459784, type: 3}
-  selectTapClip: {fileID: 0}
+  selectTapClip: {fileID: 8300000, guid: 42d1a3cf67b82174780cd7f1765378a1, type: 3}
   deselectTapClip: {fileID: 8300000, guid: 7a2a4a012832d964bba54be4a2072012, type: 3}
+  dragClip: {fileID: 8300000, guid: 93758fedaeedd3241a8b416d7dc44efa, type: 3}
+  dragClip2: {fileID: 8300000, guid: 0ede363c050cc3f4fb3c80e42f6d4998, type: 3}
 --- !u!114 &667881469
 MonoBehaviour:
   m_ObjectHideFlags: 0
