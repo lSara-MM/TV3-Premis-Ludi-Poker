@@ -29,11 +29,13 @@ public class UpgradeBehaviour : MonoBehaviour
     public void UpgradeValidation()
     {
         Debug.Log("UpgradeValidation");
+        csGenerateData.validatedCardScore += 20;
     }
 
     public void UpgradeSameCard()
     {
         Debug.Log("UpgradeSameCard");
+        csGenerateData.validatedCardScore += 15;
     }
 
     public void MorePlays()

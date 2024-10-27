@@ -1,11 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using DG.Tweening;
 using System.Linq;
-using UnityEditor.PackageManager;
 using UnityEngine.UI;
 
 public class HorizontalCardHolder : MonoBehaviour
