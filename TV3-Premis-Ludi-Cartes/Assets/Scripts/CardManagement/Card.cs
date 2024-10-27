@@ -153,6 +153,16 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
         selected = !selected;
 
+        // Tap audio, different if already selected
+        if (selected)
+        {
+            horizontalCardHolder.gameObject.GetComponent<AudioSource>().PlayOneShot(horizontalCardHolder.selectedTapClip);
+        }
+        else
+        {
+            horizontalCardHolder.gameObject.GetComponent<AudioSource>().PlayOneShot(horizontalCardHolder.deselectTapClip);
+        }
+
         // Check if it is the hand Holder and there are discards available
         if (horizontalCardHolder.manageDiscard && horizontalCardHolder.discardButton.gameObject.GetComponent<DiscardCards>().numberDiscards != 0)
         {

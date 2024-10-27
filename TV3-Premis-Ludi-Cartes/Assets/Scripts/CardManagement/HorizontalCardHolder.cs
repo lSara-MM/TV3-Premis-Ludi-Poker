@@ -34,6 +34,13 @@ public class HorizontalCardHolder : MonoBehaviour
     public Button discardButton;
     public Button playButton;
 
+    // Audio clips
+    [SerializeField] private AudioClip drawClip;
+    [SerializeField] private AudioClip discardClip;
+    [SerializeField] public AudioClip selectedTapClip;
+    [SerializeField] public AudioClip deselectTapClip;
+
+
     void Start()
     {
         rect = GetComponent<RectTransform>();
@@ -206,6 +213,9 @@ public class HorizontalCardHolder : MonoBehaviour
     }
     public void CreateHand() // Don't call if deck is empty
     {
+        // Play fancy shuffle audio
+        GetComponent<AudioSource>().PlayOneShot(drawClip);
+
         // Check how many cards are needed to have a full hand
         int spawn = cardsToSpawn - transform.childCount - otherArea.GetComponentInChildren<HorizontalCardHolder>().cards.Count;
 
@@ -271,6 +281,8 @@ public class HorizontalCardHolder : MonoBehaviour
     {
         foreach (Card card in listCards.ToList())
         {
+            GetComponent<AudioSource>().PlayOneShot(discardClip);
+
             Destroy(card.transform.parent.gameObject);
             cards.Remove(card);
 
