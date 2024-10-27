@@ -19,8 +19,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] PlayCards playCards; //We need a reference to the script to see if the player has lost.
 
     //Value that each scored card gives, this is not a base number due to being able to be upgraded (maybe should go at data)
-    public int validatedCardScore = 35;
-    public int equalCardScore = 30;
 
 
     // Start is called before the first frame update
@@ -53,8 +51,8 @@ public class GameManager : MonoBehaviour
         if (eqCards == 1) { eqCards = 0; } //If there is only one point there is no combo
 
 
-        int validatedScoredPoints = valCards * (valCards+1) / 2 * (valCards/2) * validatedCardScore;
-        int equalScoredPoints = eqCards * (eqCards + 1) / 2 * equalCardScore;
+        int validatedScoredPoints = valCards * (valCards+1) / 2 * (valCards/2) * csGenerateData.validatedCardScore;
+        int equalScoredPoints = eqCards * (eqCards + 1) / 2 * csGenerateData.equalCardScore;
 
         playerScore += validatedScoredPoints + equalScoredPoints;
 
@@ -70,11 +68,11 @@ public class GameManager : MonoBehaviour
             //Once we detect if it was a equals or validation combo we do things
             if (listCombos[i][0].Validate(listCombos[i][1].type))
             {
-                playerScore += n * (n + 1) / 2 * (n / 2) * validatedCardScore;
+                playerScore += n * (n + 1) / 2 * (n / 2) * csGenerateData.validatedCardScore;
             }
             else
             {
-                playerScore += n * (n + 1) / 2 * equalCardScore;
+                playerScore += n * (n + 1) / 2 * csGenerateData.equalCardScore;
             }
         }
 

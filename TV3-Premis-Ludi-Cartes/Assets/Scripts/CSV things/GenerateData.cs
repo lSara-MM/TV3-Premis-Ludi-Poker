@@ -7,6 +7,11 @@ public class GenerateData : MonoBehaviour
     public List<Word> wordsList = new List<Word>();
     public int playerLvl = 1;
 
+    //Card values
+    //Value that each scored card gives, this is not a base number due to being able to be upgraded (maybe should go at data)
+    public int validatedCardScore = 35;
+    public int equalCardScore = 30;
+
     void Awake()
     {
         List<WordsCombinationCheck> wordsCheckerDataList = ReadCSV.Read<WordsCombinationCheck>("CSV/WordsCheck");
@@ -33,5 +38,9 @@ public class GenerateData : MonoBehaviour
         playerLvl = 1;
 
         //Set all cards upgrades to 0.
+
+        //Value that each scored card gives, this is not a base number due to being able to be upgraded (maybe should go at data)
+        validatedCardScore = 35; 
+        equalCardScore = 30;
     }
 }
