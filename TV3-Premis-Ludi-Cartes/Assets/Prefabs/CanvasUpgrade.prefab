@@ -495,7 +495,7 @@ MonoBehaviour:
   cs_SwitchScene: {fileID: 521304706840299515}
   selectedUpgrade: {fileID: 3642545687754262643}
   toggleList: []
-  warningText: {fileID: 0}
+  warningText: {fileID: 1689767877876665558}
 --- !u!114 &521304706840299515
 MonoBehaviour:
   m_ObjectHideFlags: 0

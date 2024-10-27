@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class CardsUpgradesManager : MonoBehaviour
 {
+    public List<GameObject> upgradesPrefabs = new List<GameObject>();
+
     public SwitchScene cs_SwitchScene;
     public Toggle selectedUpgrade;
     public List<Toggle> toggleList = new List<Toggle>();
@@ -16,7 +18,25 @@ public class CardsUpgradesManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        List<int> uniqueNumbers = new List<int>();
 
+        // Generate unique random numbers
+        while (uniqueNumbers.Count < 3)
+        {
+            int randomNumber = Random.Range(0, 4);
+
+            // Add the number if it hasn’t been added before
+            if (!uniqueNumbers.Contains(randomNumber))
+            {
+                uniqueNumbers.Add(randomNumber);
+            }
+        }
+
+        for (int i = 0; i < upgradesPrefabs.Count; i++) 
+        {
+            upgradesPrefabs[i].transform.GetChild(uniqueNumbers[i]).gameObject.SetActive(true);
+            toggleList.Add(upgradesPrefabs[i].transform.GetChild(uniqueNumbers[i]).gameObject.GetComponent<Toggle>());
+        }
     }
 
     // Update is called once per frame
