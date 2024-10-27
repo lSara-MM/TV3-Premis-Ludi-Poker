@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class PrintOptions : MonoBehaviour
+public class PrintScoreByOptions : MonoBehaviour
 {
     // Start is called before the first frame update
 
@@ -32,12 +32,6 @@ public class PrintOptions : MonoBehaviour
         PrintData(0);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void PrintData(int printMode) 
     {
         myText.text = "";
@@ -48,7 +42,7 @@ public class PrintOptions : MonoBehaviour
                 for (int i = 2; i <= 8; i++) 
                 {
                     myText.text += i.ToString();
-                    myText.text += " paraules =";
+                    myText.text += " paraules = ";
                     myText.text += (i * (i + 1) / 2 * (i / 2) * csGameData.validatedCardScore);
                     myText.text += "\n";
                 }
@@ -57,7 +51,7 @@ public class PrintOptions : MonoBehaviour
                 for (int i = 2; i <= 8; i++)
                 {
                     myText.text += i.ToString();
-                    myText.text += " cartes =";
+                    myText.text += " cartes = ";
                     myText.text += (i * (i + 1) / 2 * csGameData.equalCardScore);
                     myText.text += "\n";
                 }
