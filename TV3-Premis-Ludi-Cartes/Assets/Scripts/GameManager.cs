@@ -68,11 +68,11 @@ public class GameManager : MonoBehaviour
             //Once we detect if it was a equals or validation combo we do things
             if (listCombos[i][0].Validate(listCombos[i][1].type))
             {
-                playerScore += n * (n + 1) / 2 * (n / 2) * csGenerateData.validatedCardScore;
+                playerScore += n * (n + 1) / 4 * (n / 2) * csGenerateData.validatedCardScore;
             }
             else
             {
-                playerScore += n * (n + 1) / 2 * csGenerateData.equalCardScore;
+                playerScore += n * (n + 1) / 4 * csGenerateData.equalCardScore;
             }
         }
 
@@ -85,10 +85,10 @@ public class GameManager : MonoBehaviour
 
     int SetGoalScore(int level) 
     {
-        int baseScore = 300;
-        int linearScaling = level * 45;
-        int escalingDificulty = (level / 5) * 150;
-        int exponentialDificulty = (level / 3) * (level / 3 + 1) / 2 * 45;
+        int baseScore = 500;
+        int linearScaling = level * 70;
+        int escalingDificulty = (level / 5) * 250;
+        int exponentialDificulty = (level / 3) * (level / 3 + 1) / 2 * 60;
 
         return baseScore+linearScaling+escalingDificulty+exponentialDificulty;
     }
