@@ -1032,7 +1032,7 @@ MonoBehaviour:
   playButton: {fileID: 128949737}
   drawClip: {fileID: 8300000, guid: 785e511558e816d4c87e0ac2a85c2bc1, type: 3}
   discardClip: {fileID: 8300000, guid: ee7abcbb20ac12f428b7b351b7459784, type: 3}
-  selectedTapClip: {fileID: 8300000, guid: 42d1a3cf67b82174780cd7f1765378a1, type: 3}
+  selectTapClip: {fileID: 0}
   deselectTapClip: {fileID: 8300000, guid: 7a2a4a012832d964bba54be4a2072012, type: 3}
 --- !u!114 &176730505
 MonoBehaviour:
@@ -3172,7 +3172,7 @@ MonoBehaviour:
   playButton: {fileID: 128949737}
   drawClip: {fileID: 8300000, guid: 785e511558e816d4c87e0ac2a85c2bc1, type: 3}
   discardClip: {fileID: 8300000, guid: ee7abcbb20ac12f428b7b351b7459784, type: 3}
-  selectedTapClip: {fileID: 8300000, guid: 42d1a3cf67b82174780cd7f1765378a1, type: 3}
+  selectTapClip: {fileID: 0}
   deselectTapClip: {fileID: 8300000, guid: 7a2a4a012832d964bba54be4a2072012, type: 3}
 --- !u!114 &667881469
 MonoBehaviour:
@@ -6583,6 +6583,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba0537192abf7fc40af99b7b6b93ea96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wordTypes: {fileID: 142357313}
+  dropdown: {fileID: 1785333308}
 --- !u!1 &1864511653
 GameObject:
   m_ObjectHideFlags: 0
