@@ -12,6 +12,9 @@ public class GenerateData : MonoBehaviour
     public int validatedCardScore = 35;
     public int equalCardScore = 30;
 
+    public int numPlays = 4;
+    public int numDiscards = 4;
+
     void Awake()
     {
         List<WordsCombinationCheck> wordsCheckerDataList = ReadCSV.Read<WordsCombinationCheck>("CSV/WordsCheck");

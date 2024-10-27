@@ -14,6 +14,7 @@ public class DiscardCards : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        numberDiscards = GameObject.FindWithTag("Data").GetComponent<GenerateData>().numDiscards;
         numberUI.GetComponent<TextMeshProUGUI>().text = numberDiscards.ToString();
     }
 

@@ -39,10 +39,12 @@ public class UpgradeBehaviour : MonoBehaviour
     public void MorePlays()
     {
         Debug.Log("MorePlays");
+        csGenerateData.numPlays++;
     }
 
     public void MoreDiscards()
     {
         Debug.Log("MoreDiscards");
+        csGenerateData.numDiscards++;
     }
 }

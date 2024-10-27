@@ -10,7 +10,7 @@ public class SwitchScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        notDestroys.Add(GameObject.FindWithTag("Data"));
     }
 
     // Update is called once per frame

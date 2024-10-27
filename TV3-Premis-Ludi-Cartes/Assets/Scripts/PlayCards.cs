@@ -20,6 +20,7 @@ public class PlayCards : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        numberPlays = GameObject.FindWithTag("Data").GetComponent<GenerateData>().numPlays;
         numberUI.GetComponent<TextMeshProUGUI>().text = numberPlays.ToString();
     }
 

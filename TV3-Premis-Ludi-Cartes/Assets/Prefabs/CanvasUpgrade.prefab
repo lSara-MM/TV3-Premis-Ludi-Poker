@@ -454,6 +454,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2375036500244633029}
   - component: {fileID: 8824706189718504732}
+  - component: {fileID: 521304706840299515}
   m_Layer: 0
   m_Name: UpgradeManager
   m_TagString: Untagged
@@ -491,10 +492,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df42e343ae2793c459e95ea3e9b68316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cs_SwitchScene: {fileID: 0}
-  selectedUpgrade: {fileID: 0}
+  cs_SwitchScene: {fileID: 521304706840299515}
+  selectedUpgrade: {fileID: 3642545687754262643}
   toggleList: []
   warningText: {fileID: 0}
+--- !u!114 &521304706840299515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507695347083436509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5a2d711ff49d324e8d77ed0c952991f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notDestroys: []
 --- !u!1 &1532880472725576004
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,7 +545,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 410, y: -424}
+  m_AnchoredPosition: {x: 350, y: -424}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8973319358191267396
@@ -616,7 +630,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 521304706840299515}
         m_TargetAssemblyTypeName: SwitchScene, Assembly-CSharp
         m_MethodName: ChangeScene
         m_Mode: 5
@@ -932,7 +946,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -318, y: -424}
+  m_AnchoredPosition: {x: -378, y: -424}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &506454094009631154

@@ -236,6 +236,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wordsList: []
   playerLvl: 1
+  validatedCardScore: 35
+  equalCardScore: 30
 --- !u!1 &1079329036
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,8 +487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a2d711ff49d324e8d77ed0c952991f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notDestroys:
-  - {fileID: 758093017}
+  notDestroys: []
 --- !u!1 &1406084887
 GameObject:
   m_ObjectHideFlags: 0
