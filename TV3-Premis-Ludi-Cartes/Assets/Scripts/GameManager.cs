@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] PlayCards playCards; // We need a reference to the script to see if the player has lost.
 
-    [SerializeField] private float delay;
+    [SerializeField] private float delay; // Delay to show win/lose screens
 
     // UI
     [SerializeField] private GameObject winScreen;
@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
         //Modify current player score
         playerScoreText.text = playerScore.ToString();
 
-        // DeleteCards
+        // DeleteCards with delay
         StartCoroutine(cs_PlayCards.DeletePlayed());
 
         // See if the player has winned
@@ -112,7 +112,7 @@ public class GameManager : MonoBehaviour
     {
         if (playerScore >= goalScore) 
         {
-            yield return new WaitForSeconds(delay); // Wait before winning
+            yield return new WaitForSeconds(delay); // Wait to show win screen
 
             winScreen.SetActive(true);
             winScreen.GetComponent<AudioSource>().PlayOneShot(winClip);
@@ -122,9 +122,9 @@ public class GameManager : MonoBehaviour
             csGenerateData.playerLvl++;
             this.gameObject.GetComponent<SwitchScene>().ChangeScene("DeckUpgradeScene");
         }
-        else if(playCards.GetNumberPlays() == 0) // Only if we haven't won and we have 0 hands to play we lose.
+        else if(playCards.GetNumberPlays() == 1) // Only if we haven't won and we have 0 hands to play we lose. Should be 0 but StartCoroutine(cs_PlayCards.DeletePlayed()); something goes wrong.
         {
-            yield return new WaitForSeconds(delay); // Wait before losing
+            yield return new WaitForSeconds(delay);  // Wait to show lose screen
 
             loseScreen.SetActive(true);
             loseScreen.GetComponent<AudioSource>().PlayOneShot(loseClip);

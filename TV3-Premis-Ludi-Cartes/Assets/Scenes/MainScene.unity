@@ -4264,7 +4264,7 @@ MonoBehaviour:
   playerScore: 0
   cs_PlayCards: {fileID: 128949740}
   playCards: {fileID: 128949740}
-  delay: 2
+  delay: 1.5
   winScreen: {fileID: 565799365}
   loseScreen: {fileID: 1382664739}
   playerScoreText: {fileID: 716903274}

@@ -93,7 +93,7 @@ public class PlayCards : MonoBehaviour
     // Disable button if there are no played cards, otherwise enable it
     public void CheckInteractable()
     {
-        if (playedCards.GetComponent<HorizontalCardHolder>().cards.Count == 0)
+        if (playedCards.GetComponent<HorizontalCardHolder>().cards.Count == 0 || numberPlays == 0)
         {
             gameObject.GetComponent<Button>().interactable = false;
         }
@@ -106,7 +106,7 @@ public class PlayCards : MonoBehaviour
     // Delete played cards
     public IEnumerator DeletePlayed()
     {
-        gameObject.GetComponent<Button>().interactable = false; // Do not allow player to interact with the button while ccalculating score the hand
+        gameObject.GetComponent<Button>().interactable = false; // Do not allow player to interact with the button while calculating score the hand
 
         // Function in coroutine to make it smoother
         yield return playedCards.GetComponent<HorizontalCardHolder>().DeleteCardList(playedCards.GetComponent<HorizontalCardHolder>().cards);
@@ -120,8 +120,7 @@ public class PlayCards : MonoBehaviour
             numberPlays--;
             numberUI.GetComponent<TextMeshProUGUI>().text = numberPlays.ToString();
         }
-     
-        if (numberPlays == 0)
+        else
         {
             gameObject.GetComponent<Button>().interactable = false;
         }
