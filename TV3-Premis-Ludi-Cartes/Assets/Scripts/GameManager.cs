@@ -16,7 +16,11 @@ public class GameManager : MonoBehaviour
     //[SerializeField] GameObject playerScoreCanvas;
     [SerializeField] GameObject scoreCanvas;
 
-    [SerializeField] PlayCards playCards; //We need a reference to the script to see if the player has lost.
+    [SerializeField] PlayCards playCards; // We need a reference to the script to see if the player has lost.
+
+    [SerializeField] private float delay;
+    [SerializeField] private GameObject winScreen;
+    [SerializeField] private GameObject loseScreen;
 
     //Value that each scored card gives, this is not a base number due to being able to be upgraded (maybe should go at data)
 
@@ -97,14 +101,16 @@ public class GameManager : MonoBehaviour
     {
         if (playerScore >= goalScore) 
         {
-            yield return new WaitForSeconds(2); //Wait before winning
+            winScreen.SetActive(true);
+            yield return new WaitForSeconds(delay); //Wait before winning
 
             csGenerateData.playerLvl++;
             this.gameObject.GetComponent<SwitchScene>().ChangeScene("DeckUpgradeScene");
         }
         else if(playCards.GetNumberPlays() == 0) //Only if we haven't won and we have 0 hands to play we lose.
         {
-            yield return new WaitForSeconds(2); //Wait before losing
+            loseScreen.SetActive(true);
+            yield return new WaitForSeconds(delay); //Wait before losing
 
             csGenerateData.Reset();
             this.gameObject.GetComponent<SwitchScene>().ChangeScene("IntroScene");
@@ -112,5 +118,15 @@ public class GameManager : MonoBehaviour
         }
 
         yield return 0;
+    }
+
+    public bool CheckEndGame()
+    {
+        if (winScreen.activeSelf || loseScreen.activeSelf)
+        {
+            return true;
+        }
+
+        return false;
     }
 }

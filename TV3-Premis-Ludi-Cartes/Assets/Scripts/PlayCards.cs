@@ -42,8 +42,11 @@ public class PlayCards : MonoBehaviour
 
         gameManager.CalculateScore(CombosSeparator(listplayedCards));
 
-        // Delete played cards
-        StartCoroutine(DeletePlayed());
+        // Delete played cards if game didn't finish (very bad, I am lazy)
+        if (!gameManager.CheckEndGame())
+        {
+            StartCoroutine(DeletePlayed());
+        }
     }
 
     List<List<Word>> CombosSeparator(List<Word> play)
