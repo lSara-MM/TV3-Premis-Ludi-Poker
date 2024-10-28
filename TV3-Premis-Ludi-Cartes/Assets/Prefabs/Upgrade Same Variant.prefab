@@ -74,11 +74,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6265136209922531924, guid: 4f9305804e9c4ed48aae31d965f12fa7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -6.618927
+      value: -11.58
       objectReference: {fileID: 0}
     - target: {fileID: 6265136209922531924, guid: 4f9305804e9c4ed48aae31d965f12fa7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.8945007
+      value: -3.35
       objectReference: {fileID: 0}
     - target: {fileID: 6265136209922531924, guid: 4f9305804e9c4ed48aae31d965f12fa7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -99,6 +99,10 @@ PrefabInstance:
     - target: {fileID: 7943642666889885614, guid: 4f9305804e9c4ed48aae31d965f12fa7, type: 3}
       propertyPath: m_text
       value: Aumenta els punts obtinguts per cada carta jugada del mateix tipus
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749630623951465227, guid: 4f9305804e9c4ed48aae31d965f12fa7, type: 3}
+      propertyPath: m_text
+      value: Sintonia lexical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
