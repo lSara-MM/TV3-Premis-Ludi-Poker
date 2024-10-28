@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour
             csGenerateData.playerLvl++;
             this.gameObject.GetComponent<SwitchScene>().ChangeScene("DeckUpgradeScene");
         }
-        else if(playCards.GetNumberPlays() == 1) // Only if we haven't won and we have 0 hands to play we lose. Should be 0 but StartCoroutine(cs_PlayCards.DeletePlayed()); something goes wrong.
+        else if(playCards.GetNumberPlays() == 1) // Only if we haven't won and we have 0 hands to play we lose. Should be 0 but with StartCoroutine(cs_PlayCards.DeletePlayed()); something goes wrong.
         {
             yield return new WaitForSeconds(delay);  // Wait to show lose screen
 
