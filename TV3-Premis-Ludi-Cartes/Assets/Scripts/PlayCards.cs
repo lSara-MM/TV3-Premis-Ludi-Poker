@@ -115,9 +115,12 @@ public class PlayCards : MonoBehaviour
         handCards.GetComponent<HorizontalCardHolder>().CreateHand();
 
         // Manage UI Play Button
-        numberPlays--;
-        numberUI.GetComponent<TextMeshProUGUI>().text = numberPlays.ToString();
-
+        if (numberPlays != 0)
+        {
+            numberPlays--;
+            numberUI.GetComponent<TextMeshProUGUI>().text = numberPlays.ToString();
+        }
+     
         if (numberPlays == 0)
         {
             gameObject.GetComponent<Button>().interactable = false;

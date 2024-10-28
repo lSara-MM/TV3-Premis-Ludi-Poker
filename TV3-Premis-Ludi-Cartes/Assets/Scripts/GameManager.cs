@@ -13,15 +13,20 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private PlayCards cs_PlayCards;
 
-    //[SerializeField] GameObject playerScoreCanvas;
-    [SerializeField] TextMeshProUGUI playerScoreText;
-    [SerializeField] TextMeshProUGUI goalScoreText;
-
     [SerializeField] PlayCards playCards; // We need a reference to the script to see if the player has lost.
 
     [SerializeField] private float delay;
+
+    // UI
     [SerializeField] private GameObject winScreen;
     [SerializeField] private GameObject loseScreen;
+    [SerializeField] TextMeshProUGUI playerScoreText;
+    [SerializeField] TextMeshProUGUI goalScoreText;
+
+    // Audio
+    [SerializeField] AudioClip winClip;
+    [SerializeField] AudioClip loseClip;
+
 
     //Value that each scored card gives, this is not a base number due to being able to be upgraded (maybe should go at data)
 
@@ -110,6 +115,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(delay); // Wait before winning
 
             winScreen.SetActive(true);
+            winScreen.GetComponent<AudioSource>().PlayOneShot(winClip);
 
             yield return new WaitForSeconds(delay); // Wait before losing
 
@@ -121,6 +127,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(delay); // Wait before losing
 
             loseScreen.SetActive(true);
+            loseScreen.GetComponent<AudioSource>().PlayOneShot(loseClip);
 
             yield return new WaitForSeconds(delay); // Wait before losing
 
