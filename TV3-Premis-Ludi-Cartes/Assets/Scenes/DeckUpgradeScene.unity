@@ -134,18 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Upgrade Plays Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 4485427815496199933, guid: f3bd538fc53ca614fad60cfc492c54a1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4840289111423799455, guid: f3bd538fc53ca614fad60cfc492c54a1, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8824706188935955594}
-    - target: {fileID: 4840289111423799455, guid: f3bd538fc53ca614fad60cfc492c54a1, type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectUpgrade
-      objectReference: {fileID: 0}
     - target: {fileID: 8158344849675683301, guid: f3bd538fc53ca614fad60cfc492c54a1, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -331,10 +323,6 @@ PrefabInstance:
     - target: {fileID: 7374084244990110408, guid: 164b51630cdf39841bfdf09bfe435063, type: 3}
       propertyPath: m_Name
       value: Upgrade Same Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 7374084244990110408, guid: 164b51630cdf39841bfdf09bfe435063, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1295,18 +1283,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Upgrade Validate Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 3665203171910185148, guid: d57984f115c53f447aa3f10d1ddcf2c9, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5750590148656139998, guid: d57984f115c53f447aa3f10d1ddcf2c9, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8824706188935955594}
-    - target: {fileID: 5750590148656139998, guid: d57984f115c53f447aa3f10d1ddcf2c9, type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectUpgrade
-      objectReference: {fileID: 0}
     - target: {fileID: 9068659079170710436, guid: d57984f115c53f447aa3f10d1ddcf2c9, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1638,17 +1618,9 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8824706188935955594}
-    - target: {fileID: 3964764549606667368, guid: d42797dd81829e147bb5b5e222adf287, type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectUpgrade
-      objectReference: {fileID: 0}
     - target: {fileID: 5338724622227999242, guid: d42797dd81829e147bb5b5e222adf287, type: 3}
       propertyPath: m_Name
       value: Upgrade Discard
-      objectReference: {fileID: 0}
-    - target: {fileID: 5338724622227999242, guid: d42797dd81829e147bb5b5e222adf287, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
