@@ -14,11 +14,16 @@ public class CardWordVisual : MonoBehaviour
         parentCard = this.gameObject.GetComponent<CardVisual>().parentCard;
         tmp_text.text = parentCard.name;
 
-        if (parentCard.GetComponent<WordBehaviour>().word.type == WORD_TYPES.SUBSTANTIU ||
-            parentCard.GetComponent<WordBehaviour>().word.type == WORD_TYPES.PRONOM)
-        {
-            tmp_text.color = Color.white;
-        }
+        //if (tmp_text.text.Length >= 7)
+        //{
+        //    tmp_text.enableAutoSizing = true;
+        //}
+
+        //if (parentCard.GetComponent<WordBehaviour>().word.type == WORD_TYPES.SUBSTANTIU ||
+        //    parentCard.GetComponent<WordBehaviour>().word.type == WORD_TYPES.PRONOM)
+        //{
+        //    tmp_text.color = Color.white;
+        //}
     }
 
     // Update is called once per frame

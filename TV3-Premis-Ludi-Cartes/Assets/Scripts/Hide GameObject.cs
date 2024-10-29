@@ -31,6 +31,11 @@ public class ShowAndHideGameObject : MonoBehaviour
 
     }
 
+    public void OpenClose()
+    {
+        goActive.SetActive(!goActive.activeSelf);
+    }
+
     public void SetActive() // No entiendo HideGO, hago esto feo
     {
         goActive.SetActive(true);
