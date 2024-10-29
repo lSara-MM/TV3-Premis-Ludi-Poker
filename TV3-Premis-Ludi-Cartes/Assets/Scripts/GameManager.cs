@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private int goalScore;
     [SerializeField] private int playerScore = 0;
+    [SerializeField] private int currentScore = 0;
 
     [SerializeField] private PlayCards cs_PlayCards;
 
@@ -70,6 +71,7 @@ public class GameManager : MonoBehaviour
 
         //Modify current punctution
         playerScoreText.text = playerScore.ToString();
+        currentScore = 0;
     }
 
     public void CalculateScore(List<List<Word>> listCombos)
@@ -96,6 +98,27 @@ public class GameManager : MonoBehaviour
 
         // See if the player has winned
         StartCoroutine(CheckWinOrLose());
+    }
+
+    public int CurrentScore(List<List<Word>> listCombos)
+    {
+        currentScore = 0;
+
+        for (int i = 0; i < listCombos.Count; i++)
+        {
+            int n = listCombos[i].Count;
+            //Once we detect if it was a equals or validation combo we do things
+            if (listCombos[i][0].Validate(listCombos[i][1].type))
+            {
+                currentScore += csGenerateData.validatedCardScore * n * (n + 1) / 4 * (n / 2);
+            }
+            else
+            {
+                currentScore += csGenerateData.equalCardScore * n * (n + 1) / 4;
+            }
+        }
+
+        return currentScore;
     }
 
     int SetGoalScore(int level) 

@@ -17,6 +17,8 @@ public class PlayCards : MonoBehaviour
 
     [SerializeField] private GameManager gameManager; //We need access to the script to call the function and add the score
 
+    [SerializeField] private TextMeshProUGUI currentScore;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,8 @@ public class PlayCards : MonoBehaviour
         }
 
         gameManager.CalculateScore(CombosSeparator(listplayedCards));
+
+        currentScore.text = "+ 0";
 
         //// Delete played cards if game didn't finish (very bad, I am lazy)
         //if (!gameManager.CheckEndGame())
@@ -93,6 +97,8 @@ public class PlayCards : MonoBehaviour
     // Disable button if there are no played cards, otherwise enable it
     public void CheckInteractable()
     {
+        currentScore.text = "+ 0";
+
         if (playedCards.GetComponent<HorizontalCardHolder>().cards.Count == 0 || numberPlays == 0)
         {
             gameObject.GetComponent<Button>().interactable = false;
@@ -100,6 +106,22 @@ public class PlayCards : MonoBehaviour
         else
         {
             gameObject.GetComponent<Button>().interactable = true;
+
+            if (playedCards.GetComponent<HorizontalCardHolder>().cards.Count == 1)
+            {
+                currentScore.text = "+ 0";
+            }
+            else
+            {
+                List<Word> listplayed = new List<Word>();
+
+                for (int i = 0; i < playedCards.transform.childCount; i++)
+                {
+                    listplayed.Add(playedCards.transform.GetChild(i).GetChild(0).gameObject.GetComponent<WordBehaviour>().word);
+                }
+
+                currentScore.text = "+ " + gameManager.CurrentScore(CombosSeparator(listplayed)).ToString();
+            }
         }
     }
 
