@@ -4732,8 +4732,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1572079381}
         m_TargetAssemblyTypeName: ShowAndHideGameObject, Assembly-CSharp
-        m_MethodName: HideGO
-        m_Mode: 3
+        m_MethodName: OpenClose
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4794,7 +4794,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameObjects:
   - {fileID: 1019824128}
-  goActive: {fileID: 0}
+  goActive: {fileID: 1019824128}
   goInactive: {fileID: 0}
 --- !u!1 &1596701602
 GameObject:
