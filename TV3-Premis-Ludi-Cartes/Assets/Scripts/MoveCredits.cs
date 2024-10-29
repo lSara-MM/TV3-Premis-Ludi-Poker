@@ -33,7 +33,7 @@ public class MoveCredits : MonoBehaviour
         int mult = 1; //Para hacer que vaya mas rapido
 
 
-        if(Input.GetKey(KeyCode.Space)) { mult = 3; }
+        if(Input.GetKey(KeyCode.Space)) { mult = 3; } //Si presionando espacio o tapeando el movil (FALTA HACER MOVIL).
         if (picture.anchoredPosition.y < -endOfCanvas*2.9) //Con tres le asoma la puntita
         {
             dt += Time.deltaTime;

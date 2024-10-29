@@ -90,8 +90,6 @@ public class HorizontalCardHolder : MonoBehaviour
             Destroy(selectedCard.transform.parent.gameObject);
             cards.Remove(selectedCard);
 
-            // Check if play button should be interactable
-            playButton.GetComponent<PlayCards>().CheckInteractable();
         }
         else
         {
@@ -102,6 +100,10 @@ public class HorizontalCardHolder : MonoBehaviour
 
             selectedCard = null;
         }
+
+
+        // Check if play button should be interactable
+        playButton.GetComponent<PlayCards>().CheckInteractable();
     }
 
     void CardPointerEnter(Card card)
