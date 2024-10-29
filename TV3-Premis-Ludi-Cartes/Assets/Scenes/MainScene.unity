@@ -1036,6 +1036,7 @@ MonoBehaviour:
   - {fileID: 1019824128}
   goActive: {fileID: 0}
   goInactive: {fileID: 0}
+  buttonActive: {fileID: 0}
 --- !u!114 &335959986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1187,10 +1188,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Ho has aconseguit campi\xF3!"
+  m_text: Bufar i fer ampolles!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 19fd8fdb83708ea449e6f8c335857931, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: -8207739032108802296, guid: 19fd8fdb83708ea449e6f8c335857931, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1221,8 +1222,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1250,10 +1251,10 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -61.358337, y: 0, z: 2.1938171, w: 0}
+  m_margin: {x: -61.358337, y: 0, z: 11.927017, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &383919366
@@ -3960,6 +3961,7 @@ MonoBehaviour:
   - {fileID: 1019824128}
   goActive: {fileID: 0}
   goInactive: {fileID: 0}
+  buttonActive: {fileID: 0}
 --- !u!114 &1332615345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4881,6 +4883,7 @@ MonoBehaviour:
   - {fileID: 1019824128}
   goActive: {fileID: 1019824128}
   goInactive: {fileID: 0}
+  buttonActive: {fileID: 0}
 --- !u!1 &1596701602
 GameObject:
   m_ObjectHideFlags: 0
@@ -4938,6 +4941,7 @@ MonoBehaviour:
   - {fileID: 1689750439}
   goActive: {fileID: 6569612819718447303}
   goInactive: {fileID: 1689750439}
+  buttonActive: {fileID: 5935771499021537888}
 --- !u!114 &1596701605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5001,7 +5005,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1596701602}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -6324,7 +6328,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 3799547562372990050}
   m_OnClick:
     m_PersistentCalls:
@@ -6552,6 +6556,7 @@ MonoBehaviour:
   - {fileID: 6569612819718447303}
   goActive: {fileID: 1689750439}
   goInactive: {fileID: 6569612819718447303}
+  buttonActive: {fileID: 1596701602}
 --- !u!1 &1342772641257487985
 GameObject:
   m_ObjectHideFlags: 0
@@ -6635,6 +6640,7 @@ MonoBehaviour:
   - {fileID: 0}
   goActive: {fileID: 1316652652}
   goInactive: {fileID: 1470167184477930067}
+  buttonActive: {fileID: 1342772641257487985}
 --- !u!224 &3470504173069016529
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6692,13 +6698,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5935771499021537888}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0.5764706, g: 0.8313726, b: 0.9294118, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7082,7 +7088,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -699, y: 307}
-  m_SizeDelta: {x: 189.5, y: 115.08}
+  m_SizeDelta: {x: 201.32, y: 115.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6569612819718447303
 GameObject:
@@ -7147,7 +7153,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 3907076212969146506}
   m_OnClick:
     m_PersistentCalls:
@@ -7204,6 +7210,7 @@ MonoBehaviour:
   - {fileID: 0}
   goActive: {fileID: 1470167184477930067}
   goInactive: {fileID: 1316652652}
+  buttonActive: {fileID: 5814479672022826653}
 --- !u!222 &8131333362397459308
 CanvasRenderer:
   m_ObjectHideFlags: 0
