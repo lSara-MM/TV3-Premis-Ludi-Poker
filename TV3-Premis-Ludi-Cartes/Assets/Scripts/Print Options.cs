@@ -8,11 +8,13 @@ public class PrintScoreByOptions : MonoBehaviour
     // Start is called before the first frame update
 
     [SerializeField] GenerateData csGameData;
-    public TextMeshProUGUI myText;
+    private TextMeshProUGUI myText;
 
     //Values of combos
     int validateScore = 0;
     int equalsScore = 0;
+
+    [SerializeField] int _printmode; // 0 = phrase combo -- 1 = same combo
 
     public enum TYPE_COMBO 
     {
@@ -27,9 +29,9 @@ public class PrintScoreByOptions : MonoBehaviour
         validateScore = csGameData.validatedCardScore;
         equalsScore = csGameData.equalCardScore;
 
-        myText.text = "";
+        myText = GetComponent<TextMeshProUGUI>();
 
-        //PrintData(0);
+        PrintData(_printmode);
     }
 
     public void PrintData(int printMode) 
