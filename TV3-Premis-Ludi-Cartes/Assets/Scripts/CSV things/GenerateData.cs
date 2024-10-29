@@ -7,6 +7,8 @@ public class GenerateData : MonoBehaviour
     public List<Word> wordsList = new List<Word>();
     public int playerLvl = 1;
 
+    public Dictionary<Upgrade, int> upgradesMap = new Dictionary<Upgrade, int>();
+
     //Card values
     //Value that each scored card gives, this is not a base number due to being able to be upgraded (maybe should go at data)
     public int validatedCardScore = 35;
@@ -14,6 +16,8 @@ public class GenerateData : MonoBehaviour
 
     public int numPlays = 4;
     public int numDiscards = 4;
+
+    public int highScore = 0;
 
     void Awake()
     {
@@ -45,5 +49,7 @@ public class GenerateData : MonoBehaviour
         //Value that each scored card gives, this is not a base number due to being able to be upgraded (maybe should go at data)
         validatedCardScore = 35; 
         equalCardScore = 30;
+
+        upgradesMap.Clear();
     }
 }

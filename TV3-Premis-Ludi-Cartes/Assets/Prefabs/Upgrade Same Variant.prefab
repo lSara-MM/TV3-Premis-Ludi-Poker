@@ -97,6 +97,26 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6530161237025820174, guid: 4f9305804e9c4ed48aae31d965f12fa7, type: 3}
+      propertyPath: title
+      value: 
+      objectReference: {fileID: 490861244416231567}
+    - target: {fileID: 6530161237025820174, guid: 4f9305804e9c4ed48aae31d965f12fa7, type: 3}
+      propertyPath: description
+      value: 
+      objectReference: {fileID: 1269577392745452586}
+    - target: {fileID: 6530161237025820174, guid: 4f9305804e9c4ed48aae31d965f12fa7, type: 3}
+      propertyPath: upgrade.title
+      value: Sintonia lexical
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530161237025820174, guid: 4f9305804e9c4ed48aae31d965f12fa7, type: 3}
+      propertyPath: upgrade.rarity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530161237025820174, guid: 4f9305804e9c4ed48aae31d965f12fa7, type: 3}
+      propertyPath: upgrade.description
+      value: Aumenta els punts obtinguts per cada carta jugada del mateix tipus
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530161237025820174, guid: 4f9305804e9c4ed48aae31d965f12fa7, type: 3}
       propertyPath: functionSelected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: UpgradeSameCard
       objectReference: {fileID: 0}
@@ -117,3 +137,25 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f9305804e9c4ed48aae31d965f12fa7, type: 3}
+--- !u!114 &490861244416231567 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8749630623951465227, guid: 4f9305804e9c4ed48aae31d965f12fa7, type: 3}
+  m_PrefabInstance: {fileID: 9197209168743637892}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1269577392745452586 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7943642666889885614, guid: 4f9305804e9c4ed48aae31d965f12fa7, type: 3}
+  m_PrefabInstance: {fileID: 9197209168743637892}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
