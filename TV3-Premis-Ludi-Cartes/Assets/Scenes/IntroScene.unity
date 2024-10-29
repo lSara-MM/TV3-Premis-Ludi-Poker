@@ -789,6 +789,7 @@ MonoBehaviour:
   equalCardScore: 30
   numPlays: 4
   numDiscards: 4
+  highScore: 0
 --- !u!1 &1079329036
 GameObject:
   m_ObjectHideFlags: 0
@@ -1530,7 +1531,7 @@ MonoBehaviour:
   m_text: "Cartal\xE0"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 05859b50993cc344a83a81fcd34c8cc0, type: 2}
-  m_sharedMaterial: {fileID: 5880788820099496226, guid: 05859b50993cc344a83a81fcd34c8cc0, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 4b7319d331038514c93d1811d2477a18, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
