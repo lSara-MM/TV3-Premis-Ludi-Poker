@@ -42,7 +42,13 @@ public class CardsUpgradesManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            if (selectedUpgrade != null)
+            {
+                selectedUpgrade.GetComponent<UpgradeBehaviour>().ExecuteSelectedFunction();
+            }
+        }
     }
 
     public void AcceptUpgrade()
