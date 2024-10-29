@@ -80,11 +80,11 @@ public class GameManager : MonoBehaviour
             //Once we detect if it was a equals or validation combo we do things
             if (listCombos[i][0].Validate(listCombos[i][1].type))
             {
-                playerScore += n * (n + 1) / 4 * (n / 2) * csGenerateData.validatedCardScore;
+                playerScore += csGenerateData.validatedCardScore * n * (n + 1) / 4 * (n / 2);
             }
             else
             {
-                playerScore += n * (n + 1) / 4 * csGenerateData.equalCardScore;
+                playerScore += csGenerateData.equalCardScore * n * (n + 1) / 4;
             }
         }
 
