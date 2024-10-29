@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DeckUpgradeScene.unity
     guid: b6a6087375424b84b8408b4da9698451
+  - enabled: 1
+    path: Assets/Scenes/CreditsScene.unity
+    guid: e25ad1b979d13794da06e0a015122efa
   m_configObjects: {}
