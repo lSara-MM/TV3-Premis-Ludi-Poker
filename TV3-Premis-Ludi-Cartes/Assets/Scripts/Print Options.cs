@@ -45,7 +45,7 @@ public class PrintScoreByOptions : MonoBehaviour
                 {
                     myText.text += i.ToString();
                     myText.text += " paraules = ";
-                    myText.text += (i * (i + 1) / 2 * (i / 2) * csGameData.validatedCardScore);
+                    myText.text += (csGameData.validatedCardScore * i * (i + 1) * (i / 2) / 4);
                     myText.text += "\n";
                 }
                 break;
@@ -54,7 +54,7 @@ public class PrintScoreByOptions : MonoBehaviour
                 {
                     myText.text += i.ToString();
                     myText.text += " cartes = ";
-                    myText.text += (i * (i + 1) / 2 * csGameData.equalCardScore);
+                    myText.text += (csGameData.equalCardScore * i * (i + 1) / 4);
                     myText.text += "\n";
                 }
                 break;
