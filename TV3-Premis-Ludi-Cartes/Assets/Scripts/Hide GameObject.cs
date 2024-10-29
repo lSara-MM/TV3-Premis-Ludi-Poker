@@ -7,6 +7,9 @@ public class ShowAndHideGameObject : MonoBehaviour
     // Start is called before the first frame update
 
     [SerializeField] List<GameObject> gameObjects;
+
+    [SerializeField] GameObject goActive;
+    [SerializeField] GameObject goInactive;
     void Start()
     {
         
@@ -26,5 +29,11 @@ public class ShowAndHideGameObject : MonoBehaviour
             go.SetActive( (!go.activeInHierarchy || (mode>0)) && !(mode<0)); //Si mode <0 entonces solo puede desactivar porque siempre sera falso en el and, si mode>0 siempre sera cierto porque true en el or
         }
 
+    }
+
+    public void SetActive() // No entiendo HideGO, hago esto feo
+    {
+        goActive.SetActive(true);
+        goInactive.SetActive(false);
     }
 }
