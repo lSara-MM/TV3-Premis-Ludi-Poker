@@ -24,7 +24,12 @@ public class SwitchScene : MonoBehaviour
         //Dont Destroy the gameobjects from the list, like the deck, as if we update it we want it to stay updated.
         for (int i = 0; i < notDestroys.Count; i++)
         {
-            DontDestroyOnLoad(notDestroys[i]); //IMPORTANT: Don't destroy on load only work for root game object
+            try 
+            {
+                DontDestroyOnLoad(notDestroys[i]); //IMPORTANT: Don't destroy on load only work for root game object
+            }
+            catch { }
+            
         }
 
         //Change to the scene written on the Script
