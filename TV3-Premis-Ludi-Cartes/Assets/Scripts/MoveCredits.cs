@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.DeviceSimulation;
 using UnityEngine;
 
 public class MoveCredits : MonoBehaviour
@@ -29,25 +30,27 @@ public class MoveCredits : MonoBehaviour
             this.gameObject.GetComponent<SwitchScene>().ChangeScene("IntroScene");
         }
 
+        int mult = 1; //Make credits go faster
 
-        int mult = 1; //Para hacer que vaya mas rapido
+        if (Input.GetKey(KeyCode.Space) || (Input.touchCount > 0 && Input.GetTouch(0).phase == UnityEngine.TouchPhase.Stationary)) { mult = 3; } //If we press space or we tap
+        
+        dt += Time.deltaTime;
 
-
-        if(Input.GetKey(KeyCode.Space)) { mult = 3; } //Si presionando espacio o tapeando el movil (FALTA HACER MOVIL).
         if (picture.anchoredPosition.y < -endOfCanvas*2.9) //Con tres le asoma la puntita
         {
-            dt += Time.deltaTime;
-
             if (dt > waitMove)
             {
                 picture.anchoredPosition = new Vector2(picture.anchoredPosition.x, picture.anchoredPosition.y + jumps*mult);
                 dt = 0;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Space)) 
+        else if (Input.GetKeyDown(KeyCode.Space) || (Input.touchCount > 0 && Input.GetTouch(0).phase == UnityEngine.TouchPhase.Began)) 
         {
             this.gameObject.GetComponent<SwitchScene>().ChangeScene("IntroScene");
         }
-        
+        else if(dt > 5f) 
+        {
+            this.gameObject.GetComponent<SwitchScene>().ChangeScene("IntroScene");
+        }
     }
 }
