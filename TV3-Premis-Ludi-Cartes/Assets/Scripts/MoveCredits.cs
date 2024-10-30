@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.DeviceSimulation;
+//using UnityEditor.DeviceSimulation;
 using UnityEngine;
 
 public class MoveCredits : MonoBehaviour

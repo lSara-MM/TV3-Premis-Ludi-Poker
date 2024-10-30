@@ -36,7 +36,7 @@ public class UpgradeBehaviour : MonoBehaviour
 
         if (temp != null)
         {
-            upgrade.currentLvl++;
+            temp.currentLvl++;
         }
         else
         {
