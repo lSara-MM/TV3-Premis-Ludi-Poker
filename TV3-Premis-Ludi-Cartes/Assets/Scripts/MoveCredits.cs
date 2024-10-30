@@ -36,7 +36,7 @@ public class MoveCredits : MonoBehaviour
         
         dt += Time.deltaTime;
 
-        if (picture.anchoredPosition.y < -endOfCanvas*2.9) //Con tres le asoma la puntita
+        if (picture.anchoredPosition.y < -endOfCanvas*3.4) //Con tres le asoma la puntita
         {
             if (dt > waitMove)
             {
