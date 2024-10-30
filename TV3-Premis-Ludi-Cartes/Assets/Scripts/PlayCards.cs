@@ -46,7 +46,7 @@ public class PlayCards : MonoBehaviour
 
         currentScore.text = "+ 0";
 
-        //// Delete played cards if game didn't finish (very bad, I am lazy)
+        //// Delete played cards if game didn't finish 
         //if (!gameManager.CheckEndGame())
         //{
         //    StartCoroutine(DeletePlayed());
