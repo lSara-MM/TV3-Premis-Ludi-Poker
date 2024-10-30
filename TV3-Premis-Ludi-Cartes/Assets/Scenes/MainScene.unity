@@ -5893,7 +5893,7 @@ MonoBehaviour:
   gameObjects:
   - {fileID: 0}
   - {fileID: 1689750439}
-  goActive: {fileID: 0}
+  goActive: {fileID: 2066701788}
   goInactive: {fileID: 1689750439}
   buttonActive: {fileID: 5935771499021537888}
 --- !u!114 &1596701605
@@ -6985,7 +6985,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2066701789
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7645,7 +7645,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6156781602809781088, guid: 1c6f4dc2f82741d4ea5eeb28004f0842, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7107779815466990241, guid: 1c6f4dc2f82741d4ea5eeb28004f0842, type: 3}
       propertyPath: m_fontSize
@@ -7758,7 +7758,7 @@ MonoBehaviour:
   - {fileID: 1689750439}
   - {fileID: 0}
   goActive: {fileID: 1689750439}
-  goInactive: {fileID: 0}
+  goInactive: {fileID: 2066701788}
   buttonActive: {fileID: 1596701602}
 --- !u!224 &1438091157969626071
 RectTransform:
