@@ -48,7 +48,7 @@ public class MoveCredits : MonoBehaviour
         {
             this.gameObject.GetComponent<SwitchScene>().ChangeScene("IntroScene");
         }
-        else if(dt > 10f) 
+        else if(dt > 8f) 
         {
             this.gameObject.GetComponent<SwitchScene>().ChangeScene("IntroScene");
         }
