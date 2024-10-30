@@ -825,9 +825,8 @@ MonoBehaviour:
   upgradesList: []
   validatedCardScore: 35
   equalCardScore: 30
-  numPlays: 4
-  numDiscards: 4
-  highScore: 0
+  numPlays: 3
+  numDiscards: 3
 --- !u!1 &1079329036
 GameObject:
   m_ObjectHideFlags: 0
