@@ -2394,58 +2394,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &600062558
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 600062560}
-  - component: {fileID: 600062559}
-  m_Layer: 0
-  m_Name: Data (Quitar)
-  m_TagString: Data
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &600062559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600062558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9d75a1e4e6753744a2c5d3f242fc783, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wordsList: []
-  playerLvl: 1
-  upgradesList: []
-  validatedCardScore: 35
-  equalCardScore: 30
-  numPlays: 4
-  numDiscards: 4
-  highScore: 0
---- !u!4 &600062560
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600062558}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &609707358
 GameObject:
   m_ObjectHideFlags: 0
@@ -3847,7 +3795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 706d2c91f86d7314093bb01c752482cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csGameData: {fileID: 600062559}
+  csGameData: {fileID: 0}
   _printmode: 0
 --- !u!114 &1110023843
 MonoBehaviour:
@@ -6908,7 +6856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 706d2c91f86d7314093bb01c752482cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csGameData: {fileID: 600062559}
+  csGameData: {fileID: 0}
   _printmode: 1
 --- !u!114 &2023703810
 MonoBehaviour:
@@ -8113,6 +8061,5 @@ SceneRoots:
   - {fileID: 2074635280}
   - {fileID: 2004274449}
   - {fileID: 833497503}
-  - {fileID: 600062560}
   - {fileID: 940043743}
   - {fileID: 441505840}
