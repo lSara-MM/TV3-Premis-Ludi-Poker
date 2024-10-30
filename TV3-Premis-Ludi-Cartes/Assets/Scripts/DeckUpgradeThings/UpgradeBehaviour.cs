@@ -56,7 +56,7 @@ public class UpgradeBehaviour : MonoBehaviour
     public void UpgradeSameCard()
     {
         Debug.Log("UpgradeSameCard");
-        csGenerateData.validatedCardScore += 15;
+        csGenerateData.equalCardScore += 15;
     }
 
     public void MorePlays()
