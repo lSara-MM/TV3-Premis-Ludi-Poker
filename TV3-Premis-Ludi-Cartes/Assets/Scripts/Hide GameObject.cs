@@ -47,7 +47,6 @@ public class ShowAndHideGameObject : MonoBehaviour
         goInactive.SetActive(false);
 
         gameObject.GetComponent<Button>().interactable = false;
-
         buttonActive.GetComponent<Button>().interactable = true;
     }
 }

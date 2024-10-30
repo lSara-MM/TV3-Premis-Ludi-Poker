@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class GenerateData : MonoBehaviour
     public List<Word> wordsList = new List<Word>();
     public int playerLvl = 1;
 
-    public Dictionary<Upgrade, int> upgradesMap = new Dictionary<Upgrade, int>();
+    public List<Upgrade> upgradesList = new List<Upgrade>();
 
     //Card values
     //Value that each scored card gives, this is not a base number due to being able to be upgraded (maybe should go at data)
@@ -50,6 +51,6 @@ public class GenerateData : MonoBehaviour
         validatedCardScore = 35; 
         equalCardScore = 30;
 
-        upgradesMap.Clear();
+        upgradesList.Clear();
     }
 }
