@@ -15,10 +15,8 @@ public class GenerateData : MonoBehaviour
     public int validatedCardScore = 35;
     public int equalCardScore = 30;
 
-    public int numPlays = 4;
-    public int numDiscards = 4;
-
-    public int highScore = 0;
+    public int numPlays = 3;
+    public int numDiscards = 3;
 
     void Awake()
     {
@@ -50,6 +48,9 @@ public class GenerateData : MonoBehaviour
         //Value that each scored card gives, this is not a base number due to being able to be upgraded (maybe should go at data)
         validatedCardScore = 35; 
         equalCardScore = 30;
+
+        numPlays = 3;
+        numDiscards = 3;
 
         upgradesList.Clear();
     }
