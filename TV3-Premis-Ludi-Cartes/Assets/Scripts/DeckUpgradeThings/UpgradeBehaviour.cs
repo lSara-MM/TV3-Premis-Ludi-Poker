@@ -32,14 +32,19 @@ public class UpgradeBehaviour : MonoBehaviour
     {
         functionSelected.Invoke();
 
-        if (csGenerateData.upgradesMap.ContainsKey(upgrade))
+        Upgrade temp = csGenerateData.upgradesList.Find((x) => x.id == upgrade.id);
+
+        if (temp != null)
         {
-            csGenerateData.upgradesMap[upgrade]++;
+            upgrade.currentLvl++;
         }
         else
         {
-            csGenerateData.upgradesMap.Add(upgrade, 1);
+            upgrade.currentLvl = 1;
+            csGenerateData.upgradesList.Add(upgrade);
         }
+
+        Debug.Log($"Upgrades: {csGenerateData.upgradesList.Count}");
     }
 
     public void UpgradeValidation()

@@ -16,7 +16,7 @@ public class Upgrade
     public string title;
     public string description;
     public UPGRADE_RARITY rarity;
-    int currentLvl;
+    public int currentLvl;
 
     public Upgrade() { }
 
@@ -24,6 +24,7 @@ public class Upgrade
     {
         this.description = description;
         this.rarity = rarity;
+        currentLvl = 0;
     }
 
     void Apply()
